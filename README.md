@@ -1,153 +1,122 @@
-# React + TypeScript + Vite
+# Hariharan S Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive portfolio built with React, TypeScript, and Vite.  
+Live: [https://hariharan-s5.github.io/MyPortfolio/](https://hariharan-s5.github.io/MyPortfolio/)
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Showcase your achievements, certificates, projects, skills, education, and contact info in a single-page web app.  
+Fully customizable, fast, and deployable to GitHub Pages.
 
-## React Compiler
+---
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## How to Download & Install
 
-Note: This will impact Vite dev & build performances.
+1. **Clone the repository:**
+  ```
+  git clone https://github.com/Hariharan-S5/MyPortfolio.git
+  cd MyPortfolio
+  ```
 
-## Expanding the ESLint configuration
+2. **Install dependencies:**
+  ```
+  npm install
+  ```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+3. **Run locally:**
+  ```
+  npm run dev
+  ```
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+4. **Build for production:**
+  ```
+  npm run build
+  ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+5. **Preview production build:**
+  ```
+  npm run preview
+  ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+6. **Deploy to GitHub Pages:**
+  ```
+  npm run deploy
+  ```
+
+---
+
+## Project Structure
+
+```
+my-portfolio/
+│
+├── public/
+│   ├── assets/                # Static images, SVGs, PDFs
+│   ├── certificate-viewer.html
+│   ├── blue-rounded.svg
+│   └── ...other static files
+│
+├── src/
+│   ├── assets/                # App-specific images
+│   ├── components/            # React components
+│   │   ├── Header.tsx
+│   │   ├── Hero.tsx
+│   │   ├── About.tsx
+│   │   ├── Skills.tsx
+│   │   ├── Certificates.tsx
+│   │   ├── Achievements.tsx
+│   │   ├── Projects.tsx
+│   │   ├── Education.tsx
+│   │   └── Contact.tsx
+│   ├── data/
+│   │   └── metadata.json      # Portfolio content (editable)
+│   ├── App.tsx                # Main app layout
+│   ├── main.tsx               # Entry point
+│   ├── App.css                # App styles
+│   └── index.css              # Global styles
+│
+├── index.html                 # Root HTML
+├── package.json               # Project config & scripts
+├── vite.config.ts             # Vite config (base path for GitHub Pages)
+├── tsconfig*.json             # TypeScript configs
+└── README.md                  # Project documentation
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Workflow & Architecture
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **App.tsx**: Main layout, imports all sections and passes metadata.
+- **main.tsx**: React entry point, renders App.
+- **components/**: Each file is a section (Header, Hero, About, etc.), receives props from metadata.json.
+- **data/metadata.json**: All portfolio content (name, title, skills, certificates, achievements, projects, education, contact).
+- **public/assets/**: Static files (images, PDFs, SVGs).
+- **Styles**: App.css and index.css for styling.
+
+**Flow:**
+1. App loads metadata.json.
+2. App.tsx passes data to each section component.
+3. Components render content dynamically.
+4. Static assets are loaded from public/assets.
+
+---
+
+## Technologies Used
+
+- React 19
+- TypeScript
+- Vite
+- React Icons
+- ESLint
+- GitHub Pages (gh-pages)
+
+---
 
 
-React + Vite project and want to host it on GitHub Pages. I’ll give you a step-by-step guide so your portfolio can go live. We'll make it simple and clear.
+## Conclusion
 
-Step 1: Install gh-pages
+This portfolio is easy to customize, fast to deploy, and visually appealing.  
+Edit `src/data/metadata.json` to update your content.  
+Contributions and feedback are welcome!
 
-This package helps deploy your dist folder to GitHub Pages.
-
-npm install --save-dev gh-pages
-Step 2: Add homepage in package.json
-
-Add the URL where your site will be hosted.
-
-If your GitHub username is your-username and the repo is my-portfolio:
-
-"homepage": "https://your-username.github.io/my-portfolio"
-Step 3: Update package.json scripts
-
-Add deploy scripts:
-
-"scripts": {
-  "dev": "vite",
-  "build": "tsc -b && vite build",
-  "preview": "vite preview",
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
-}
-
-Explanation:
-
-predeploy → builds the project before deploying
-
-deploy → pushes the dist folder to GitHub Pages
-
-Step 4: Configure vite.config.ts for GitHub Pages
-
-Update your vite.config.ts (or vite.config.js) to handle the base path:
-
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-
-export default defineConfig({
-  plugins: [react()],
-  base: '/my-portfolio/'  // <-- use your repo name here
-});
-
-This ensures your paths work correctly on GitHub Pages.
-
-Step 5: Build and Deploy
-
-Now, deploy your app:
-
-npm run deploy
-
-This will:
-
-Build your project into dist/
-
-Push dist/ to gh-pages branch
-
-Your project will be live at https://your-username.github.io/my-portfolio
-
-Step 6: Enable GitHub Pages
-
-Go to your repo on GitHub.
-
-Settings → Pages → Branch: gh-pages → Save
-
-Wait a minute → your site should be live.
-
-✅ Bonus Tip: Testing locally
-You can run:
-
-npm run preview
-
-It simulates the production build so you can test paths before deploying.
-
-If you want, I can give you a ready-to-use updated package.json and vite.config.ts that’s perfectly set up for GitHub Pages, so you just copy-paste and deploy.
+---
