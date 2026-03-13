@@ -1,0 +1,606 @@
+{
+  "name": "    Hariharan Sandhrasekar",
+  "title": "AI Developer | Data Engineer | Data Analyst | Full-Stack Developer",
+  "subtitle": "Dynamic Senior Developer adept at building intelligent agents and optimizing AI models",
+  "location": "Chennai",
+  "about": "AI Developer focused on building intelligent, data-driven solutions using LLMs, data engineering, and modern web technologies, including AI-powered Excel automation, Power BI analytics, data analysis, and scalable full-stack web applications.",
+  "profileImage": "/src/assets/profile-pic.jpeg",
+  "resume": "/src/assets/HariharanSD.pdf",
+
+  "education": [
+    {
+      "school": "The Gandhigram Rural Institute - Dindigul",
+      "degree": "B.Sc. Physics",
+      "year": "2020",
+      "gpa": "64%"
+    },
+    {
+      "school": "Bharathi Vidyalaya Matric Hr Sec - Thirupur",
+      "degree": "Higher Secondary",
+      "year": "2017",
+      "gpa": "85%"
+    }
+  ],
+  "skills": [
+    "Python",
+    "Angular 15",
+    "TypeScript",
+    "Node.js",
+    "Express.js",
+    "PostgreSQL",
+    "SQLite",
+    "Redis",
+    "Langchain",
+    "LLM Integration",
+    "Agent Frameworks (AutoGen)",
+    "API Integration",
+    "Message Orchestration",
+    "Reactive Programming with RxJS",
+    "JWT Authentication",
+    "Shell Scripting",
+    "C Programming",
+    "Git",
+    "Ubuntu OS",
+    "CentOS OS",
+    "Windows OS",
+    "VS Code",
+     "Python",
+    "Angular 15",
+    "TypeScript",
+    "Node.js",
+    "Express.js",
+    "PostgreSQL",
+    "SQLite",
+    "Redis",
+    "Langchain",
+    "LLM Integration ",
+    "Agent Frameworks (AutoGen)",
+    "API Integration"
+  ],
+  "achievements": [
+    {
+      "title": "Excel + AI Workshop Certificate",
+      "description": "Completed comprehensive workshop on Excel automation and AI integration techniques for data analysis and productivity enhancement.",
+      "prize": "Certificate of Completion",
+      "timestamp": 1741584000
+    },
+    {
+      "title": "Excel + AI Workshop Certificate",
+      "description": "Completed comprehensive workshop on Excel automation and AI integration techniques for data analysis and productivity enhancement.",
+      "prize": "Certificate of Completion",
+      "timestamp": 1741584000
+    },
+
+
+    {
+      "title": "Excel + AI Workshop Certificate",
+      "description": "Completed comprehensive workshop on Excel automation and AI integration techniques for data analysis and productivity enhancement.",
+      "prize": "Certificate of Completion",
+      "timestamp": 1741584000
+    },
+    {
+      "title": "Senior Developer at MSN Infotec",
+      "description": "Led development of intelligent AI agents using Python, LLM, and Langchain. Integrated large language models into multi-agent systems for enhanced communication and problem-solving.",
+      "prize": "Product Development Excellence",
+      "timestamp": 1735689600
+    },
+    {
+      "title": "Next-Gen Application Upgradation",
+      "description": "Played active role in upgrading client application to Angular 14 & 15. Conducted stress testing, improved performance, and integrated codebases.",
+      "details": "Team Size: 3",
+      "timestamp": 1730419200
+    },
+    {
+      "title": "Custom Component Development",
+      "description": "Developed custom components for Centiyent product including selection, autocompletion, and CDK-Overlays. Improved UI/UX in collaboration with design team.",
+      "prize": "Enhanced Product Performance",
+      "timestamp": 1725148800
+    },
+    {
+      "title": "API Integration Specialist",
+      "description": "Developed APIs for backend interactions, third-party integrations, and state management using Node.js, TypeScript, and PostgreSQL with non-blocking I/O.",
+      "details": "Optimized Efficiency and Performance",
+      "timestamp": 1719878400
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Excel using AI workshop",
+      "provider": "Office Master",
+      "date": "March 8, 2026",
+      "timestamp": 1741584000,
+      "website": "https://officemaster.in/",
+      "image": "src/assets/certificate/excel_ai_certificate.jpg",
+      "content": [
+        {
+          "topic": "1) Data analysis with AI",
+          "description": "Learn how to leverage AI-powered tools in Excel to analyze large datasets, identify patterns, and generate insights automatically. Master advanced functions and AI integrations for data processing and visualization."
+        },
+        {
+          "topic": "2) Creating 3D visualizations",
+          "description": "Discover techniques to create stunning 3D charts and graphs in Excel. Transform complex data into interactive visual representations that bring your analysis to life with depth and clarity."
+        },
+        {
+          "topic": "3) Designing PowerPoint presentations in minutes",
+          "description": "Streamline your presentation creation process by integrating Excel data directly into PowerPoint. Learn automation techniques to generate professional slides quickly and efficiently."
+        }
+      ]
+    }
+
+    ,{
+      "name": "Excel using AI workshop",
+      "provider": "Office Master",
+      "date": "March 8, 2026",
+      "timestamp": 1741584000,
+      "website": "https://officemaster.in/",
+      "image": "src/assets/certificate/excel_ai_certificate.jpg",
+      "content": [
+        {
+          "topic": "1) Data analysis with AI",
+          "description": "Learn how to leverage AI-powered tools in Excel to analyze large datasets, identify patterns, and generate insights automatically. Master advanced functions and AI integrations for data processing and visualization."
+        },
+        {
+          "topic": "2) Creating 3D visualizations",
+          "description": "Discover techniques to create stunning 3D charts and graphs in Excel. Transform complex data into interactive visual representations that bring your analysis to life with depth and clarity."
+        },
+        {
+          "topic": "3) Designing PowerPoint presentations in minutes",
+          "description": "Streamline your presentation creation process by integrating Excel data directly into PowerPoint. Learn automation techniques to generate professional slides quickly and efficiently."
+        }
+      ]
+    },
+    {
+      "name": "Excel using AI workshop",
+      "provider": "Office Master",
+      "date": "March 8, 2026",
+      "timestamp": 1741584000,
+      "website": "https://officemaster.in/",
+      "image": "src/assets/certificate/excel_ai_certificate.jpg",
+      "content": [
+        {
+          "topic": "1) Data analysis with AI",
+          "description": "Learn how to leverage AI-powered tools in Excel to analyze large datasets, identify patterns, and generate insights automatically. Master advanced functions and AI integrations for data processing and visualization."
+        },
+        {
+          "topic": "2) Creating 3D visualizations",
+          "description": "Discover techniques to create stunning 3D charts and graphs in Excel. Transform complex data into interactive visual representations that bring your analysis to life with depth and clarity."
+        },
+        {
+          "topic": "3) Designing PowerPoint presentations in minutes",
+          "description": "Streamline your presentation creation process by integrating Excel data directly into PowerPoint. Learn automation techniques to generate professional slides quickly and efficiently."
+        }
+      ]
+    },
+    {
+      "name": "Excel using AI workshop",
+      "provider": "Office Master",
+      "date": "March 8, 2026",
+      "timestamp": 1741584000,
+      "website": "https://officemaster.in/",
+      "image": "src/assets/certificate/excel_ai_certificate.jpg",
+      "content": [
+        {
+          "topic": "1) Data analysis with AI",
+          "description": "Learn how to leverage AI-powered tools in Excel to analyze large datasets, identify patterns, and generate insights automatically. Master advanced functions and AI integrations for data processing and visualization."
+        },
+        {
+          "topic": "2) Creating 3D visualizations",
+          "description": "Discover techniques to create stunning 3D charts and graphs in Excel. Transform complex data into interactive visual representations that bring your analysis to life with depth and clarity."
+        },
+        {
+          "topic": "3) Designing PowerPoint presentations in minutes",
+          "description": "Streamline your presentation creation process by integrating Excel data directly into PowerPoint. Learn automation techniques to generate professional slides quickly and efficiently."
+        }
+      ]
+    },
+    {
+      "name": "Excel using AI workshop",
+      "provider": "Office Master",
+      "date": "March 8, 2026",
+      "timestamp": 1741584000,
+      "website": "https://officemaster.in/",
+      "image": "src/assets/certificate/excel_ai_certificate.jpg",
+      "content": [
+        {
+          "topic": "1) Data analysis with AI",
+          "description": "Learn how to leverage AI-powered tools in Excel to analyze large datasets, identify patterns, and generate insights automatically. Master advanced functions and AI integrations for data processing and visualization."
+        },
+        {
+          "topic": "2) Creating 3D visualizations",
+          "description": "Discover techniques to create stunning 3D charts and graphs in Excel. Transform complex data into interactive visual representations that bring your analysis to life with depth and clarity."
+        },
+        {
+          "topic": "3) Designing PowerPoint presentations in minutes",
+          "description": "Streamline your presentation creation process by integrating Excel data directly into PowerPoint. Learn automation techniques to generate professional slides quickly and efficiently."
+        }
+      ]
+    },
+    {
+      "name": "Excel using AI workshop",
+      "provider": "Office Master",
+      "date": "March 8, 2026",
+      "timestamp": 1741584000,
+      "website": "https://officemaster.in/",
+      "image": "src/assets/certificate/excel_ai_certificate.jpg",
+      "content": [
+        {
+          "topic": "1) Data analysis with AI",
+          "description": "Learn how to leverage AI-powered tools in Excel to analyze large datasets, identify patterns, and generate insights automatically. Master advanced functions and AI integrations for data processing and visualization."
+        },
+        {
+          "topic": "2) Creating 3D visualizations",
+          "description": "Discover techniques to create stunning 3D charts and graphs in Excel. Transform complex data into interactive visual representations that bring your analysis to life with depth and clarity."
+        },
+        {
+          "topic": "3) Designing PowerPoint presentations in minutes",
+          "description": "Streamline your presentation creation process by integrating Excel data directly into PowerPoint. Learn automation techniques to generate professional slides quickly and efficiently."
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Excel Data Generator",
+      "description": "A cross-browser extension that generates scenario-based Excel data (Sales, Stock, Customer, Employee, etc.) and automatically pastes it into Google Sheets. Designed for data analysts and testers, it creates realistic random datasets and streamlines workflow by integrating directly with Google Sheets.",
+      "tech": ["JavaScript", "HTML", "CSS", "Chrome Exe Manifest V3", "GSheets integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "Chrome Extension",
+      "timestamp": 1773049699,
+      "isClickable": false 
+    },
+    {
+      "title": "Intelligent AI Agents Platform",
+      "description": "Developed autonomous AI agents capable of reasoning, planning, and decision-making using Python, LLM, and Langchain. Integrated GPT, Claude, and Gemini models for multi-agent systems.",
+      "tech": ["Python", "Langchain", "LLM", "AutoGen", "API Integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "AI & Machine Learning",
+      "timestamp": 1741584000,
+      "isClickable": true
+    }
+    ,
+    {
+      "title": "Intelligent AI Agents Platform",
+      "description": "Developed autonomous AI agents capable of reasoning, planning, and decision-making using Python, LLM, and Langchain. Integrated GPT, Claude, and Gemini models for multi-agent systems.",
+      "tech": ["Python", "Langchain", "LLM", "AutoGen", "API Integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "AI & Machine Learning",
+      "timestamp": 1741584000,
+      "isClickable": true
+    },
+    {
+      "title": "Centiyent Information Security Product",
+      "description": "Built and customized information security modules for Centiyent using Angular 15, PostgreSQL. Developed custom components, authentication with JWT, and API integrations.",
+      "tech": ["Angular 15", "TypeScript", "Node.js", "PostgreSQL", "JWT"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/centiyent-security",
+      "image": "/assets/project2.jpg",
+      "category": "Web Development",
+      "timestamp": 1733875200,
+      "isClickable": false
+    },
+    {
+      "title": "Next-Gen Application Upgradation",
+      "description": "Led the upgradation of client application from Angular 10 to 14 & 15. Conducted stress testing, performance optimization, and seamless codebase integration.",
+      "tech": ["Angular 14", "Angular 15", "PostgreSQL", "Performance Tuning"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/app-upgradation",
+      "image": "/assets/project3.jpg",
+      "category": "Web Development",
+      "timestamp": 1726176000,
+      "isClickable": false
+    },
+    {
+      "title": "API Orchestration System",
+      "description": "Developed robust APIs for backend interactions and third-party integrations using Node.js and TypeScript. Implemented non-blocking I/O and streams for high performance.",
+      "tech": ["Node.js", "TypeScript", "Express.js", "PostgreSQL", "RxJS"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/api-orchestration",
+      "image": "/assets/project4.jpg",
+      "category": "Backend Development",
+      "timestamp": 1718486400,
+      "isClickable": false
+    }
+
+    ,
+    {
+      "title": "Dashbords + AI",
+      "description": "Developed autonomous AI agents capable of reasoning, planning, and decision-making using Python, LLM, and Langchain. Integrated GPT, Claude, and Gemini models for multi-agent systems.",
+      "tech": ["Python", "Langchain", "LLM", "AutoGen", "API Integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "Dashbords + AI",
+      "timestamp": 1741584000,
+      "isClickable": true
+    },
+    {
+      "title": "Dashbords + AI",
+      "description": "Developed autonomous AI agents capable of reasoning, planning, and decision-making using Python, LLM, and Langchain. Integrated GPT, Claude, and Gemini models for multi-agent systems.",
+      "tech": ["Python", "Langchain", "LLM", "AutoGen", "API Integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "Dashbords + AI",
+      "timestamp": 1741584000,
+      "isClickable": true
+    },
+    {
+      "title": "Intelligent AI Agents Platform",
+      "description": "Developed autonomous AI agents capable of reasoning, planning, and decision-making using Python, LLM, and Langchain. Integrated GPT, Claude, and Gemini models for multi-agent systems.",
+      "tech": ["Python", "Langchain", "LLM", "AutoGen", "API Integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "Dashbords + AI",
+      "timestamp": 1741584000,
+      "isClickable": true
+    },
+    {
+      "title": "Intelligent AI Agents Platform",
+      "description": "Developed autonomous AI agents capable of reasoning, planning, and decision-making using Python, LLM, and Langchain. Integrated GPT, Claude, and Gemini models for multi-agent systems.",
+      "tech": ["Python", "Langchain", "LLM", "AutoGen", "API Integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "Dashbords + AI",
+      "timestamp": 1741584000,
+      "isClickable": true
+    },
+    {
+      "title": "Intelligent AI Agents Platform",
+      "description": "Developed autonomous AI agents capable of reasoning, planning, and decision-making using Python, LLM, and Langchain. Integrated GPT, Claude, and Gemini models for multi-agent systems.",
+      "tech": ["Python", "Langchain", "LLM", "AutoGen", "API Integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "Dashbords + AI",
+      "timestamp": 1741584000,
+      "isClickable": true
+    },
+    {
+      "title": "Intelligent AI Agents Platform",
+      "description": "Developed autonomous AI agents capable of reasoning, planning, and decision-making using Python, LLM, and Langchain. Integrated GPT, Claude, and Gemini models for multi-agent systems.",
+      "tech": ["Python", "Langchain", "LLM", "AutoGen", "API Integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "Dashbords + AI",
+      "timestamp": 1741584000,
+      "isClickable": true
+    },
+    {
+      "title": "Intelligent AI Agents Platform",
+      "description": "Developed autonomous AI agents capable of reasoning, planning, and decision-making using Python, LLM, and Langchain. Integrated GPT, Claude, and Gemini models for multi-agent systems.",
+      "tech": ["Python", "Langchain", "LLM", "AutoGen", "API Integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "Dashbords + AI",
+      "timestamp": 1741584000,
+      "isClickable": true
+    },
+    {
+      "title": "Intelligent AI Agents Platform",
+      "description": "Developed autonomous AI agents capable of reasoning, planning, and decision-making using Python, LLM, and Langchain. Integrated GPT, Claude, and Gemini models for multi-agent systems.",
+      "tech": ["Python", "Langchain", "LLM", "AutoGen", "API Integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "Dashbords + AI",
+      "timestamp": 1741584000,
+      "isClickable": true
+    },
+    {
+      "title": "Intelligent AI Agents Platform",
+      "description": "Developed autonomous AI agents capable of reasoning, planning, and decision-making using Python, LLM, and Langchain. Integrated GPT, Claude, and Gemini models for multi-agent systems.",
+      "tech": ["Python", "Langchain", "LLM", "AutoGen", "API Integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "Dashbords + AI",
+      "timestamp": 1741584000,
+      "isClickable": true
+    },
+    {
+      "title": "Dashbords + AI",
+      "description": "Developed autonomous AI agents capable of reasoning, planning, and decision-making using Python, LLM, and Langchain. Integrated GPT, Claude, and Gemini models for multi-agent systems.",
+      "tech": ["Python", "Langchain", "LLM", "AutoGen", "API Integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "Dashbords + AI",
+      "timestamp": 1741584000,
+      "isClickable": true
+    },
+    {
+      "title": "Dashbords + AI",
+      "description": "Developed autonomous AI agents capable of reasoning, planning, and decision-making using Python, LLM, and Langchain. Integrated GPT, Claude, and Gemini models for multi-agent systems.",
+      "tech": ["Python", "Langchain", "LLM", "AutoGen", "API Integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "Dashbords + AI",
+      "timestamp": 1741584000,
+      "isClickable": true
+    },
+    {
+      "title": "Intelligent AI Agents Platform",
+      "description": "Developed autonomous AI agents capable of reasoning, planning, and decision-making using Python, LLM, and Langchain. Integrated GPT, Claude, and Gemini models for multi-agent systems.",
+      "tech": ["Python", "Langchain", "LLM", "AutoGen", "API Integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "Dashbords + AI",
+      "timestamp": 1741584000,
+      "isClickable": true
+    },
+    {
+      "title": "Intelligent AI Agents Platform",
+      "description": "Developed autonomous AI agents capable of reasoning, planning, and decision-making using Python, LLM, and Langchain. Integrated GPT, Claude, and Gemini models for multi-agent systems.",
+      "tech": ["Python", "Langchain", "LLM", "AutoGen", "API Integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "Dashbords + AI",
+      "timestamp": 1741584000,
+      "isClickable": true
+    },
+    {
+      "title": "Intelligent AI Agents Platform",
+      "description": "Developed autonomous AI agents capable of reasoning, planning, and decision-making using Python, LLM, and Langchain. Integrated GPT, Claude, and Gemini models for multi-agent systems.",
+      "tech": ["Python", "Langchain", "LLM", "AutoGen", "API Integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "Dashbords + AI",
+      "timestamp": 1741584000,
+      "isClickable": true
+    },
+    {
+      "title": "Intelligent AI Agents Platform",
+      "description": "Developed autonomous AI agents capable of reasoning, planning, and decision-making using Python, LLM, and Langchain. Integrated GPT, Claude, and Gemini models for multi-agent systems.",
+      "tech": ["Python", "Langchain", "LLM", "AutoGen", "API Integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "Dashbords + AI",
+      "timestamp": 1741584000,
+      "isClickable": true
+    },
+    {
+      "title": "Intelligent AI Agents Platform",
+      "description": "Developed autonomous AI agents capable of reasoning, planning, and decision-making using Python, LLM, and Langchain. Integrated GPT, Claude, and Gemini models for multi-agent systems.",
+      "tech": ["Python", "Langchain", "LLM", "AutoGen", "API Integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "Dashbords + AI",
+      "timestamp": 1741584000,
+      "isClickable": true
+    },
+    {
+      "title": "Intelligent AI Agents Platform",
+      "description": "Developed autonomous AI agents capable of reasoning, planning, and decision-making using Python, LLM, and Langchain. Integrated GPT, Claude, and Gemini models for multi-agent systems.",
+      "tech": ["Python", "Langchain", "LLM", "AutoGen", "API Integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "Dashbords + AI",
+      "timestamp": 1741584000,
+      "isClickable": true
+    },
+    {
+      "title": "Intelligent AI Agents Platform",
+      "description": "Developed autonomous AI agents capable of reasoning, planning, and decision-making using Python, LLM, and Langchain. Integrated GPT, Claude, and Gemini models for multi-agent systems.",
+      "tech": ["Python", "Langchain", "LLM", "AutoGen", "API Integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "Dashbords + AI",
+      "timestamp": 1741584000,
+      "isClickable": true
+    },
+    {
+      "title": "Intelligent AI Agents Platform",
+      "description": "Developed autonomous AI agents capable of reasoning, planning, and decision-making using Python, LLM, and Langchain. Integrated GPT, Claude, and Gemini models for multi-agent systems.",
+      "tech": ["Python", "Langchain", "LLM", "AutoGen", "API Integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "Dashbords + AI",
+      "timestamp": 1741584000,
+      "isClickable": true
+    },
+    {
+      "title": "Intelligent AI Agents Platform",
+      "description": "Developed autonomous AI agents capable of reasoning, planning, and decision-making using Python, LLM, and Langchain. Integrated GPT, Claude, and Gemini models for multi-agent systems.",
+      "tech": ["Python", "Langchain", "LLM", "AutoGen", "API Integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "Dashbords + AI",
+      "timestamp": 1741584000,
+      "isClickable": true
+    },
+    {
+      "title": "Intelligent AI Agents Platform",
+      "description": "Developed autonomous AI agents capable of reasoning, planning, and decision-making using Python, LLM, and Langchain. Integrated GPT, Claude, and Gemini models for multi-agent systems.",
+      "tech": ["Python", "Langchain", "LLM", "AutoGen", "API Integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "Dashbords + AI",
+      "timestamp": 1741584000,
+      "isClickable": true
+    },
+    {
+      "title": "Intelligent AI Agents Platform",
+      "description": "Developed autonomous AI agents capable of reasoning, planning, and decision-making using Python, LLM, and Langchain. Integrated GPT, Claude, and Gemini models for multi-agent systems.",
+      "tech": ["Python", "Langchain", "LLM", "AutoGen", "API Integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "Dashbords + AI",
+      "timestamp": 1741584000,
+      "isClickable": true
+    },
+    {
+      "title": "Intelligent AI Agents Platform",
+      "description": "Developed autonomous AI agents capable of reasoning, planning, and decision-making using Python, LLM, and Langchain. Integrated GPT, Claude, and Gemini models for multi-agent systems.",
+      "tech": ["Python", "Langchain", "LLM", "AutoGen", "API Integration"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/ai-agents",
+      "image": "/assets/project1.jpg",
+      "category": "Dashbords + AI",
+      "timestamp": 1741584000,
+      "isClickable": true
+    },
+    {
+      "title": "Web + AI",
+      "description": "Built and customized information security modules for Centiyent using Angular 15, PostgreSQL. Developed custom components, authentication with JWT, and API integrations.",
+      "tech": ["Angular 15", "TypeScript", "Node.js", "PostgreSQL", "JWT"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/centiyent-security",
+      "image": "/assets/project2.jpg",
+      "category": "Web + AI",
+      "timestamp": 1733875200,
+      "isClickable": false
+    },
+    {
+      "title":"PowerBi + AI",
+      "description": "Led the upgradation of client application from Angular 10 to 14 & 15. Conducted stress testing, performance optimization, and seamless codebase integration.",
+      "tech": ["Angular 14", "Angular 15", "PostgreSQL", "Performance Tuning"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/app-upgradation",
+      "image": "/assets/project3.jpg",
+      "category": "PowerBi + AI",
+      "timestamp": 1726176000,
+      "isClickable": false
+    },
+    {
+      "title": "Excel + AI",
+      "description": "Developed robust APIs for backend interactions and third-party integrations using Node.js and TypeScript. Implemented non-blocking I/O and streams for high performance.",
+      "tech": ["Node.js", "TypeScript", "Express.js", "PostgreSQL", "RxJS"],
+      "liveLink": "https://centiyent.com",
+      "codeLink": "https://github.com/hariharan-sandhrasekar/api-orchestration",
+      "image": "/assets/project4.jpg",
+      "category": "Excel + AI",
+      "timestamp": 1718486400,
+      "isClickable": false
+    }
+  ],
+    "contact": {
+    "github": "https://github.com/Hariharan-S5",
+    "linkedin": "https://linkedin.com/in/your-linkedin",
+    "email": "your.email@example.com",
+    "instagram": "https://instagram.com/your-instagram",
+    "leedcote": "https://leedcote.com/u/Hariharan-sandhrasekar/"
+  }
+  
+}
