@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Trash2, Save, X, Link, Image, Calendar, Tag, FileText, GraduationCap, Award, Layout } from 'lucide-react';
+import { Plus, Trash2, Save, X, Link, Image, Calendar, Tag, FileText, GraduationCap, Award, Layout, Download } from 'lucide-react';
 import metadata from '../data/metadata.json';
 
 export default function AdminPanel({ onClose }) {
+  const isDevelopment = window.location.hostname.includes('localhost') || window.location.hostname.includes('127.0.0.1');
   const [activeTab, setActiveTab] = useState('profile');
   const [draftData, setDraftData] = useState(JSON.parse(JSON.stringify(metadata)));
   const [isSaving, setIsSaving] = useState(false);
@@ -273,6 +274,32 @@ export default function AdminPanel({ onClose }) {
     }
   };
 
+  // Download JSON fallback (for production/GitHub Pages)
+  const handleDownloadJSON = () => {
+    const payload = JSON.parse(JSON.stringify(draftData));
+    const cleanPayload = (data) => {
+      if (data.projects) data.projects = data.projects.map(({ _isEditable, ...rest }) => rest);
+      if (data.achievements) data.achievements = data.achievements.map(({ _isEditable, ...rest }) => rest);
+      if (data.education) data.education = data.education.map(({ _isEditable, ...rest }) => rest);
+      if (data.certificates) data.certificates = data.certificates.map(({ _isEditable, ...rest }) => rest);
+      return data;
+    };
+    
+    const finalData = cleanPayload(payload);
+    const blob = new Blob([JSON.stringify(finalData, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'metadata.json';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    
+    setSaveMessage("File ready for download!");
+    setTimeout(() => setSaveMessage(""), 4000);
+  };
+
   // Save changes
   const handleSaveChanges = async () => {
     setIsSaving(true);
@@ -380,14 +407,18 @@ export default function AdminPanel({ onClose }) {
             {tab === 'sections' ? 'Page Headers' : tab}
           </button>
         ))}
-        <div className="flex-1"></div>
+        <div className="flex-1 px-4 flex items-center">
+        </div>
 
         <button
-          onClick={handleSaveChanges}
+          onClick={isDevelopment ? handleSaveChanges : handleDownloadJSON}
           disabled={isSaving}
           className="flex items-center gap-2 px-4 py-2 bg-primary/20 text-primary hover:bg-primary hover:text-primary-foreground rounded-lg text-sm font-medium transition-all"
+          title={isDevelopment ? "Save JSON" : "Download JSON"}
         >
-          {isSaving ? "Saving..." : <><Save size={16} /> Save JSON</>}
+          {isSaving ? "Saving..." : (
+            isDevelopment ? <><Save size={16} /> Save JSON</> : <Download size={18} />
+          )}
         </button>
       </div>
 

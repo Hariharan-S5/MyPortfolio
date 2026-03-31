@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Globe } from 'lucide-react';
 import metadata from '../../data/metadata.json';
+import { getAssetUrl } from '../../utils/assetUrl';
 
 const gradients = [
   'from-blue-500 to-cyan-500',
@@ -51,7 +52,7 @@ export default function Projects() {
             <div className={`w-full h-48 bg-gradient-to-br ${gradients[index % gradients.length]} relative overflow-hidden shrink-0`}>
               {project.image ? (
                 <img 
-                  src={project.image} 
+                  src={getAssetUrl(project.image)} 
                   alt={project.title} 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />

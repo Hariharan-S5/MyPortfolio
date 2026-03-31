@@ -1,16 +1,108 @@
-# React + Vite
+# 🚀 Hariharan-s Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, high-performance, and fully dynamic developer portfolio built with **React**, **Vite**, and **Tailwind CSS**. This project features a built-in **Admin Dashboard** (CMS) for real-time content updates without touching the code.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+- **⚡ Blazing Fast**: Built with Vite and React for instant loading.
+- **🎨 Premium UI**: Beautiful SaaS-style design with **Framer Motion** animations.
+- **🛠️ Admin Dashboard**: Dedicated CMS to update profile info, projects, skills, and certificates.
+- **📱 Fully Responsive**: Optimized for all devices (Mobile, Tablet, Desktop).
+- **📦 Static Hosting**: Seamlessly deployed on **GitHub Pages**.
+- **🤖 Automation**: Python script included for one-command GitHub updates.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend**: React 19, Vite
+- **Styling**: Tailwind CSS, Vanilla CSS
+- **Icons**: Lucide-React, React-Icons
+- **Animations**: Framer Motion
+- **Deployment**: GitHub Pages (`gh-pages`)
+
+---
+
+## 🚀 Getting Started
+
+### 1. Prerequisites
+Ensure you have **Node.js** and **npm** installed on your system.
+
+### 2. Installation
+Clone the repository and install dependencies:
+```bash
+git clone https://github.com/Hariharan-S5/MyPortfolio.git
+cd MyPortfolio
+npm install
+```
+
+### 3. Local Development
+Run the development server locally:
+```bash
+npm run dev
+```
+The site will be available at `http://localhost:5173`.
+
+---
+
+## 🔐 Admin Dashboard (CMS)
+
+The project includes a secure Admin Panel to manage your data dynamically:
+1.  Scroll to the **Footer** of your site.
+2.  Click the **Lock Icon** (Secret Tool).
+3.  Enter your access key.
+4.  Edit your content directly in the UI.
+
+> [!NOTE]
+> To save changes automatically to your local `metadata.json`, you must be running the site locally using `npm run dev`.
+
+---
+
+## 📡 Deployment
+
+This project is configured for **GitHub Pages**. To deploy your latest changes:
+
+```bash
+npm run deploy
+```
+This will build the project and push the `dist/` folder to the `gh-pages` branch.
+
+---
+
+## 🐍 Automation Script (`update_portfolio.py`)
+
+I have included a Python script to automate your workflow. Running this script will:
+- Stage all changes.
+- Commit with a message of your choice.
+- Push to the main GitHub repository.
+- Optionally run the deployment script for you.
+
+**How to use:**
+```bash
+python update_portfolio.py
+```
+
+---
+
+## 📁 Project Structure
+
+```text
+├── public/                # Static assets (Favicons, images)
+├── src/
+│   ├── components/        # UI components & Sections
+│   ├── data/
+│   │   └── metadata.json  # Centralized portfolio content
+│   ├── utils/             # Helper functions (Asset paths, etc.)
+│   └── main.jsx           # App entry point
+├── update_portfolio.py    # Automation script
+└── vite.config.js         # Build configuration
+```
+
+---
+
+## 📄 License
+This project is for personal use. Feel free to use it as a template for your own developer portfolio.
+
+Built with ❤️ by **Hariharan-s**

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Award, ExternalLink, Calendar, BookOpen, X, Eye } from 'lucide-react';
 import metadata from '../../data/metadata.json';
+import { getAssetUrl } from '../../utils/assetUrl';
 
 export default function Certificates() {
   const [selectedCert, setSelectedCert] = useState(null);
@@ -124,7 +125,7 @@ export default function Certificates() {
                   <div className="w-full md:w-1/2 bg-secondary/20 p-8 flex items-center justify-center min-h-[300px] md:h-full border-b md:border-b-0 md:border-r border-border/30 overflow-hidden">
                     {selectedCert.image ? (
                       <img 
-                        src={selectedCert.image} 
+                        src={getAssetUrl(selectedCert.image)} 
                         alt={selectedCert.name} 
                         className="max-w-full max-h-full object-contain rounded-lg shadow-2xl border border-border/50"
                       />

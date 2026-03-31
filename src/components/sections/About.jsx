@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Award, GraduationCap, Search } from 'lucide-react';
 import metadata from '../../data/metadata.json';
+import { getAssetUrl } from '../../utils/assetUrl';
 
 export default function About() {
   const [skillSearch, setSkillSearch] = useState('');
@@ -29,7 +30,7 @@ export default function About() {
               <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full p-[3px] bg-gradient-to-br from-primary via-blue-400 to-purple-500 shadow-2xl">
                 <div className="w-full h-full rounded-full overflow-hidden bg-background">
                   <img
-                    src={metadata.profileImage}
+                    src={getAssetUrl(metadata.profileImage)}
                     alt={metadata.name}
                     className="w-full h-full object-cover object-top"
                   />

@@ -4,6 +4,7 @@ import { ArrowRight, Download } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
 import metadata from '../../data/metadata.json';
+import { getAssetUrl } from '../../utils/assetUrl';
 
 export default function Hero() {
   return (
@@ -63,7 +64,7 @@ export default function Hero() {
             View My Work
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>
-          <a href={metadata.resume} target="_blank" rel="noreferrer" download className="group flex items-center gap-2 px-6 py-3 rounded-full glass hover:bg-white/20 dark:hover:bg-black/20 font-medium transition-all">
+          <a href={getAssetUrl(metadata.resume)} target="_blank" rel="noreferrer" download className="group flex items-center gap-2 px-6 py-3 rounded-full glass hover:bg-white/20 dark:hover:bg-black/20 font-medium transition-all">
             <Download size={18} />
             Download CV
           </a>
