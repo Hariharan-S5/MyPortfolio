@@ -61,4 +61,5 @@ function metadataApi() {
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), metadataApi()],
+  base: '/MyPortfolio/',
 });
