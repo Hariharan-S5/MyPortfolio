@@ -87,6 +87,36 @@
     "Postman",
     "Android Studio"
   ],
+  "experience": [
+    {
+      "company": "Independent / Freelance",
+      "role": "Freelance Software Developer",
+      "duration": "Apr 2025 – Present",
+      "description": "Designed and developed full-stack web applications using React.js, Node.js, Express.js, and PostgreSQL. Built scalable RESTful APIs with proper documentation, authentication, and security best practices. Implemented role-based access control using OpenID and CSRF protection mechanisms. Optimized backend performance using caching strategies and efficient database query design. Developed reusable frontend components with modern state management techniques. Integrated third-party APIs, payment gateways, and external services. Built AI-powered features using LLMs for automation, intelligent responses, and workflow optimization. Designed and integrated RAG-based pipelines for contextual search and knowledge retrieval systems. Worked with prompt engineering techniques to enhance AI model accuracy and task-specific performance. Collaborated directly with clients to gather requirements and deliver production-ready systems.",
+      "timestamp": 1776078906
+    },
+    {
+      "company": "MSN Infotec, Coimbatore (Client: Centiyent)",
+      "role": "Senior Developer",
+      "duration": "Apr 2024 – Mar 2025",
+      "description": "Designed and developed intelligent AI agents capable of reasoning, planning, and autonomous decision-making. Integrated LLMs (GPT, Claude, Gemini) into multi-agent architectures for enhanced problem solving. Built RAG-based systems for enterprise search and knowledge retrieval. Worked with LangChain and custom orchestration frameworks for agent workflows and memory management. Improved system performance by optimizing microservices and reducing API latency. Integrated external APIs and tools to extend AI system capabilities. Applied prompt engineering and fine-tuning strategies for task-specific model optimization.",
+      "timestamp": 1776078906
+    },
+    {
+      "company": "MSN Infotec, Coimbatore (Client: Centiyent)",
+      "role": "Assistant Developer",
+      "duration": "Mar 2023 – Mar 2024",
+      "description": "Developed reusable Angular components including custom selection and autocomplete modules. Implemented CDK overlays and improved UI/UX consistency across applications. Built JWT-based authentication and authorization systems. Developed Node.js + TypeScript APIs for backend integration and state management. Participated in application modernization and performance optimization efforts. Conducted stress testing and resolved performance bottlenecks.",
+      "timestamp": 1776078906
+    },
+    {
+      "company": "MSN Infotec, Coimbatore (Client: Centiyent)",
+      "role": "Junior Software Developer",
+      "duration": "Nov 2021 – Feb 2023",
+      "description": "Worked on Angular 7/8 frontend development and PostgreSQL backend systems. Handled module-level development, testing, and bug fixes. Improved HTML/SCSS components and gradually transitioned into TypeScript development. Collaborated with technical leads to deliver enterprise-level product modules.",
+      "timestamp": 1776078906
+    }
+  ],
   "achievements": [
     {
       "title": "Senior Developer at MSN Infotec",
@@ -321,36 +351,53 @@
   },
   "sections": {
     "about": {
-      "title": "About Me"
+      "title": "About Me",
+      "show": true
+    },
+    "hero": {
+      "greeting": "Hi, I'm",
+      "show": true
+    },
+    "experience": {
+      "title": "Work Experience",
+      "show": true
+    },
+    "achievements": {
+      "title": "Achievements",
+      "show": true
+    },
+    "education": {
+      "title": "Education",
+      "show": true
     },
     "projects": {
       "title": "Completed Projects",
-      "subtitle": "Showcasing my latest work and technical expertise."
+      "subtitle": "Showcasing my latest work and technical expertise.",
+      "show": true
     },
     "certificates": {
       "title": "Official Certifications",
-      "subtitle": "My professional journey through continuous learning and specialized certifications."
+      "subtitle": "My professional journey through continuous learning and specialized certifications.",
+      "show": true
     },
     "contact": {
       "title": "Get in Touch",
-      "subtitle": "Have a project in mind or just want to say hi? Feel free to reach out."
+      "subtitle": "Have a project in mind or just want to say hi? Feel free to reach out.",
+      "show": true
     },
     "skills": {
       "title": "Technical Arsenal",
-      "subtitle": "I've worked with a wide variety of programming languages, frameworks, and tools. Here is my technology stack:"
-    },
-    "hero": {
-      "greeting": "Hi, I'm"
-    },
-    "achievements": {
-      "title": "Achievements"
-    },
-    "education": {
-      "title": "Education"
-    },
-    "experience": {
-      "title": "Work Experience"
+      "subtitle": "I've worked with a wide variety of programming languages, frameworks, and tools. Here is my technology stack:",
+      "show": true
     }
   },
-  "experience": []
+  "config": {
+    "geminiKey": "AIzaSyChqGLLAZMxhcjkfTcLy4o5uM4It2T05zE",
+    "adminAccessKey": "45729181a21304931555490a74f362451b681dd358ea7d427ba26562d8881dd2",
+    "theme": "light",
+    "stats": {
+      "dailyRequests": 6,
+      "lastReset": "2026-04-13"
+    }
+  }
 }

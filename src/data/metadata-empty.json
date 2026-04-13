@@ -1,0 +1,73 @@
+{
+    "name": "",
+    "title": "",
+    "subtitle": "",
+    "location": "",
+    "about": "",
+    "profileImage": "",
+    "resume": "",
+    "education": [],
+    "skills": [],
+    "experience": [],
+    "achievements": [],
+    "certificates": [],
+    "projects": [],
+    "contact": {
+        "github": "",
+        "linkedin": "",
+        "email": "",
+        "instagram": "",
+        "leetcode": ""
+    },
+    "sections": {
+        "about": {
+            "title": "About Me",
+            "show": true
+        },
+        "hero": {
+            "greeting": "Hi, I'm",
+            "show": true
+        },
+        "experience": {
+            "title": "Work Experience",
+            "show": true
+        },
+        "achievements": {
+            "title": "Achievements",
+            "show": true
+        },
+        "education": {
+            "title": "Education",
+            "show": true
+        },
+        "projects": {
+            "title": "Featured Projects",
+            "subtitle": "",
+            "show": true
+        },
+        "certificates": {
+            "title": "Certificates",
+            "subtitle": "",
+            "show": true
+        },
+        "contact": {
+            "title": "Get in Touch",
+            "subtitle": "",
+            "show": true
+        },
+        "skills": {
+            "title": "Technical Arsenal",
+            "subtitle": "",
+            "show": true
+        }
+    },
+    "config": {
+        "geminiKey": "",
+        "adminAccessKey": "45729181a21304931555490a74f362451b681dd358ea7d427ba26562d8881dd2",
+        "theme": "light",
+        "stats": {
+            "dailyRequests": 0,
+            "lastReset": ""
+        }
+    }
+}

@@ -10,7 +10,11 @@ import Footer from './components/Footer';
 import metadata from './data/metadata.json';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(metadata.config?.theme === 'dark');
+
+  useEffect(() => {
+    setDarkMode(metadata.config?.theme === 'dark');
+  }, [metadata.config?.theme]);
 
   useEffect(() => {
     if (darkMode) {

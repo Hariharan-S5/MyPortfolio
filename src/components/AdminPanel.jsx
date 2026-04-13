@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Trash2, Save, X, Link, Image, Calendar, Tag, FileText, GraduationCap, Award, Layout, Download, Bot, Edit3, UploadCloud, Briefcase, User, Settings, Eye, EyeOff, CheckCircle2, AlertCircle, Lock, ArrowLeft, Sun, Moon, ExternalLink, HelpCircle } from 'lucide-react';
+import { Plus, Trash2, Save, X, Link, Image, Calendar, Tag, FileText, GraduationCap, Award, Layout, Download, Bot, Edit3, UploadCloud, Briefcase, User, Settings, Eye, EyeOff, CheckCircle2, AlertCircle, Lock, ArrowLeft, Sun, Moon } from 'lucide-react';
 import metadata from '../data/metadata.json';
 import { getAssetUrl } from '../utils/assetUrl';
 
@@ -63,6 +63,7 @@ export default function AdminPanel({ onClose }) {
   const [isSaving, setIsSaving] = useState(false);
   const [saveMessage, setSaveMessage] = useState("");
   const [isProcessingAI, setIsProcessingAI] = useState(false);
+  const [showProcessConfirm, setShowProcessConfirm] = useState(false);
   const [geminiKey, setGeminiKey] = useState("");
   const [showGeminiKey, setShowGeminiKey] = useState(false);
   const [isUpdatingKey, setIsUpdatingKey] = useState(false);
@@ -80,6 +81,7 @@ export default function AdminPanel({ onClose }) {
   // Use a separate state for the onboarding input to prevent premature transition
   const [onboardingGeminiKey, setOnboardingGeminiKey] = useState("");
   const [onboardingCompleted, setOnboardingCompleted] = useState(false);
+  const [showGeminiInfo, setShowGeminiInfo] = useState(false);
 
   const calculateHealth = () => {
     let score = 0;
@@ -120,15 +122,7 @@ export default function AdminPanel({ onClose }) {
 
   const [stats, setStats] = useState({ dailyRequests: 0, lastReset: "" });
   const [theme, setTheme] = useState('light');
-  const [githubToken, setGithubToken] = useState("");
-  const [githubRepo, setGithubRepo] = useState("");
-  const [githubBranch, setGithubBranch] = useState("main");
-  const [showGithubToken, setShowGithubToken] = useState(false);
-  const [isUpdatingGithub, setIsUpdatingGithub] = useState(false);
-  const [enableGithubEdit, setEnableGithubEdit] = useState(false);
-  const [isSyncingGithub, setIsSyncingGithub] = useState(false);
-  const [syncStatus, setSyncStatus] = useState({ type: '', text: '', url: '' });
-  const [showTokenHelp, setShowTokenHelp] = useState(false);
+
   
   // Fetch config on mount
   React.useEffect(() => {
@@ -145,11 +139,7 @@ export default function AdminPanel({ onClose }) {
         if (data.stats) {
           setStats(data.stats);
         }
-        if (data.github) {
-          setGithubToken(data.github.token || "");
-          setGithubRepo(data.github.repo || "");
-          setGithubBranch(data.github.branch || "main");
-        }
+
         if (data.theme) {
           setTheme(data.theme);
           if (data.theme === 'dark') {
@@ -162,46 +152,6 @@ export default function AdminPanel({ onClose }) {
       .catch(err => console.error('Failed to fetch config:', err));
   }, []);
 
-  const handleUpdateGithubConfig = async () => {
-    setIsUpdatingGithub(true);
-    try {
-      const res = await fetch('/api/config', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          github: { token: githubToken, repo: githubRepo, branch: githubBranch } 
-        })
-      });
-      if (res.ok) setSaveMessage("GitHub configuration updated!");
-    } catch (err) {
-      setSaveMessage("Failed to update GitHub config.");
-    } finally {
-      setIsUpdatingGithub(false);
-      setTimeout(() => setSaveMessage(""), 3000);
-    }
-  };
-
-  const handleSyncToGitHub = async () => {
-    setIsSyncingGithub(true);
-    setSyncStatus({ type: 'loading', text: 'Synchronizing with GitHub...' });
-    try {
-      const res = await fetch('/api/sync-github', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ token: githubToken, repo: githubRepo, branch: githubBranch })
-      });
-      const data = await res.json();
-      if (data.success) {
-        setSyncStatus({ type: 'success', text: 'Sync Successful! Portfolio deployed.', url: data.commit });
-      } else {
-        throw new Error(data.error || "Sync failed");
-      }
-    } catch (err) {
-      setSyncStatus({ type: 'error', text: err.message });
-    } finally {
-      setIsSyncingGithub(false);
-    }
-  };
 
   const handleUpdateTheme = async (newTheme) => {
     setTheme(newTheme);
@@ -893,8 +843,50 @@ export default function AdminPanel({ onClose }) {
                 </div>
 
                 <div className="w-full space-y-5">
-                  <div className="space-y-2 text-left">
-                    <label className="text-[9px] font-black uppercase tracking-[0.2em] text-[#10b981]/80 ml-1">Secure API Key</label>
+                  <div className="space-y-3 text-left relative">
+                    <div className="flex items-center gap-2 mb-1">
+                      <label className="text-[9px] font-black uppercase tracking-[0.2em] text-[#10b981]/80 ml-1">Secure API Key</label>
+                      <button 
+                        onClick={() => setShowGeminiInfo(!showGeminiInfo)} 
+                        className="text-[#10b981]/60 hover:text-[#10b981] transition-colors"
+                        title="How to get an API key"
+                      >
+                        <AlertCircle size={14} />
+                      </button>
+                    </div>
+
+                    <AnimatePresence>
+                      {showGeminiInfo && (
+                        <motion.div 
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="bg-[#10b981]/5 border border-[#10b981]/20 rounded-xl p-4 mb-2 shadow-inner">
+                            <div className="text-[11px] text-muted-foreground space-y-3 leading-relaxed">
+                              <div>
+                                <strong className="text-foreground font-semibold">Step 1: Go to Google AI Studio</strong><br/>
+                                👉 Open: <a href="https://aistudio.google.com" target="_blank" rel="noreferrer" className="text-[#10b981] hover:underline hover:text-[#10b981]/80 font-medium">https://aistudio.google.com</a><br/>
+                                Login with your Google account
+                              </div>
+                              <div>
+                                <strong className="text-foreground font-semibold">🔧 Step 2: Create API Key</strong><br/>
+                                <ul className="list-disc pl-4 mt-1 space-y-0.5 opacity-80">
+                                  <li>Click "Get API key" (top right)</li>
+                                  <li>Click "Create API key"</li>
+                                  <li>Select a project (or create new one)</li>
+                                </ul>
+                              </div>
+                              <div className="font-bold text-[#10b981]">
+                                Done ✅ — your API key will be generated
+                              </div>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+
                     <div className="relative group">
                       <input 
                         type={showGeminiKey ? "text" : "password"}
@@ -961,16 +953,6 @@ export default function AdminPanel({ onClose }) {
                         <span>{isVerifying ? "Verifying..." : "Establish Connection"}</span>
                       </div>
                     </button>
-                    
-                    <a 
-                      href="https://aistudio.google.com/app/apikey" 
-                      target="_blank" 
-                      rel="noreferrer"
-                      className="text-[9px] font-bold uppercase tracking-widest text-[#10b981] hover:underline flex items-center justify-center gap-1 opacity-80"
-                    >
-                      Retrieve API Key 
-                      <ArrowLeft size={10} className="rotate-180" />
-                    </a>
                   </div>
                 </div>
 
@@ -1112,7 +1094,7 @@ export default function AdminPanel({ onClose }) {
                         Reset
                       </button>
                       <button 
-                        onClick={handleProcessWithAI}
+                        onClick={() => setShowProcessConfirm(true)}
                         disabled={isProcessingAI}
                         className="group relative flex-[2] py-3.5 rounded-xl bg-[#10b981] text-white font-black uppercase tracking-[0.15em] text-[9px] shadow-lg shadow-[#10b981]/20 overflow-hidden transition-all active:scale-[0.98] disabled:opacity-50"
                       >
@@ -1128,6 +1110,41 @@ export default function AdminPanel({ onClose }) {
                       </button>
                     </div>
                   </div>
+
+                  <AnimatePresence>
+                    {showProcessConfirm && (
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="absolute inset-0 bg-background/95 backdrop-blur-md z-[70] flex flex-col justify-center items-center p-8 text-center rounded-[2rem] border border-border"
+                      >
+                        <AlertCircle size={48} className="text-[#10b981] mb-6 drop-shadow-[0_0_10px_rgba(16,185,129,0.3)]" />
+                        <h4 className="text-xl font-bold mb-3 tracking-tight">Overwrite Content?</h4>
+                        <p className="text-sm text-muted-foreground mb-8 leading-relaxed max-w-sm">
+                          Processing this resume will use AI to extract and merge details, which may significantly modify your existing profile content. Do you want to proceed?
+                        </p>
+                        <div className="flex w-full gap-4 max-w-xs">
+                          <button 
+                            onClick={() => setShowProcessConfirm(false)}
+                            className="flex-1 px-4 py-3 rounded-xl bg-secondary text-secondary-foreground hover:bg-secondary/80 font-bold uppercase tracking-widest text-[10px] transition-all"
+                          >
+                            Cancel
+                          </button>
+                          <button 
+                            onClick={() => {
+                              setShowProcessConfirm(false);
+                              handleProcessWithAI();
+                            }}
+                            className="flex-1 px-4 py-3 rounded-xl bg-[#10b981] text-white hover:opacity-90 font-bold uppercase tracking-widest text-[10px] transition-all shadow-lg shadow-[#10b981]/20"
+                          >
+                            Proceed
+                          </button>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
                 </motion.div>
               )}
 
@@ -1959,13 +1976,25 @@ export default function AdminPanel({ onClose }) {
                    <button
                      onClick={() => handleUpdateTheme('light')}
                      disabled={!enableThemeEdit}
-                     className={`flex flex-col items-center gap-3 p-4 rounded-2xl border-2 transition-all ${!enableThemeEdit ? 'cursor-not-allowed opacity-50' : ''} ${theme === 'light' ? 'border-primary bg-primary/5 shadow-lg shadow-primary/10' : 'border-border/50 hover:border-border hover:bg-muted/50'}`}
+                     className={`flex flex-col items-center gap-3 p-4 rounded-2xl border-2 transition-all ${!enableThemeEdit ? 'cursor-not-allowed' : ''} ${
+                       !enableThemeEdit
+                         ? 'border-border/40 bg-muted/20'
+                         : theme === 'light'
+                           ? 'border-primary bg-primary/5 shadow-lg shadow-primary/10'
+                           : 'border-border/50 hover:border-border hover:bg-muted/50'
+                     }`}
                    >
-                     <div className={`w-12 h-12 rounded-full flex items-center justify-center ${theme === 'light' ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}`}>
+                     <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors ${
+                       !enableThemeEdit
+                         ? 'bg-muted text-muted-foreground/40'
+                         : theme === 'light'
+                           ? 'bg-primary text-primary-foreground'
+                           : 'bg-muted text-muted-foreground'
+                     }`}>
                         <Sun size={24} />
                      </div>
                      <div className="text-center">
-                        <p className="font-bold text-sm">Light Mode</p>
+                        <p className={`font-bold text-sm ${!enableThemeEdit ? 'text-muted-foreground/50' : ''}`}>Light Mode</p>
                         <p className="text-[10px] text-muted-foreground uppercase tracking-widest">Classic Clarity</p>
                      </div>
                    </button>
@@ -1973,220 +2002,31 @@ export default function AdminPanel({ onClose }) {
                    <button
                      onClick={() => handleUpdateTheme('dark')}
                      disabled={!enableThemeEdit}
-                     className={`flex flex-col items-center gap-3 p-4 rounded-2xl border-2 transition-all ${!enableThemeEdit ? 'cursor-not-allowed opacity-50' : ''} ${theme === 'dark' ? 'border-primary bg-primary/5 shadow-lg shadow-primary/10' : 'border-border/50 hover:border-border hover:bg-muted/50'}`}
+                     className={`flex flex-col items-center gap-3 p-4 rounded-2xl border-2 transition-all ${!enableThemeEdit ? 'cursor-not-allowed' : ''} ${
+                       !enableThemeEdit
+                         ? 'border-border/40 bg-muted/20'
+                         : theme === 'dark'
+                           ? 'border-primary bg-primary/5 shadow-lg shadow-primary/10'
+                           : 'border-border/50 hover:border-border hover:bg-muted/50'
+                     }`}
                    >
-                     <div className={`w-12 h-12 rounded-full flex items-center justify-center ${theme === 'dark' ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}`}>
+                     <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors ${
+                       !enableThemeEdit
+                         ? 'bg-muted text-muted-foreground/40'
+                         : theme === 'dark'
+                           ? 'bg-primary text-primary-foreground'
+                           : 'bg-muted text-muted-foreground'
+                     }`}>
                         <Moon size={24} />
                      </div>
                      <div className="text-center">
-                        <p className="font-bold text-sm">Dark Mode</p>
+                        <p className={`font-bold text-sm ${!enableThemeEdit ? 'text-muted-foreground/50' : ''}`}>Dark Mode</p>
                         <p className="text-[10px] text-muted-foreground uppercase tracking-widest">Midnight Premium</p>
                      </div>
                    </button>
                 </div>
               </div>
 
-              {/* GitHub Deployment Section */}
-              <div className={`p-5 rounded-xl border border-border/50 bg-card shadow-sm space-y-4 relative transition-opacity ${!enableGithubEdit ? 'opacity-80' : ''}`}>
-                <div className="flex items-center justify-between border-b border-border/50 pb-4">
-                  <h3 className="text-xl font-semibold flex items-center gap-2 text-primary">
-                    <UploadCloud size={20} /> GitHub Deployment Service
-                  </h3>
-                  <label className="flex items-center gap-2 cursor-pointer text-sm font-medium text-muted-foreground hover:text-foreground select-none">
-                    <input type="checkbox" checked={enableGithubEdit} onChange={(e) => setEnableGithubEdit(e.target.checked)} className="rounded border-border bg-background text-primary focus:ring-primary/50 cursor-pointer" />
-                    Enable Edit
-                  </label>
-                </div>
-
-                <p className="text-xs text-muted-foreground italic -mt-2">
-                  Sync your local portfolio changes directly to your GitHub repository and trigger a deployment.
-                </p>
-
-                <div className="space-y-4 pt-2">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-muted-foreground">GitHub Repository Path</label>
-                      <input 
-                        type="text" 
-                        disabled={!enableGithubEdit}
-                        value={githubRepo} 
-                        onChange={(e) => setGithubRepo(e.target.value)} 
-                        placeholder="username/repository"
-                        className="w-full bg-background border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all font-mono disabled:opacity-50"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-muted-foreground">Target Branch</label>
-                      <input 
-                        type="text" 
-                        disabled={!enableGithubEdit}
-                        value={githubBranch} 
-                        onChange={(e) => setGithubBranch(e.target.value)} 
-                        placeholder="main"
-                        className="w-full bg-background border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all font-mono disabled:opacity-50"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-muted-foreground flex items-center justify-between">
-                       <div className="flex items-center gap-1.5">
-                          <span>GITHUB PERSONAL ACCESS TOKEN</span>
-                          <button 
-                            onClick={() => setShowTokenHelp(!showTokenHelp)}
-                            className="p-1 rounded-full hover:bg-muted text-primary transition-colors"
-                            title="How to get this token?"
-                          >
-                             <HelpCircle size={14} />
-                          </button>
-                       </div>
-                       <span className="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded font-bold uppercase tracking-tighter">Requires 'repo' scope</span>
-                    </label>
-
-                    <AnimatePresence>
-                      {showTokenHelp && (
-                        <motion.div 
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: 'auto' }}
-                          exit={{ opacity: 0, height: 0 }}
-                          className="overflow-hidden"
-                        >
-                          <div className="p-5 bg-primary/5 border border-primary/20 rounded-xl mb-3 space-y-4 shadow-inner">
-                            <h4 className="text-sm font-bold text-primary flex items-center gap-2">
-                              <HelpCircle size={16} /> Extended Guide: Generating your Token
-                            </h4>
-                            <div className="space-y-4 text-[11px] leading-relaxed">
-                              <div>
-                                <p className="font-bold text-primary flex items-center gap-1.5 mb-1">
-                                  <span className="w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center text-[10px]">1</span>
-                                  Open GitHub Settings:
-                                </p>
-                                <p className="pl-5 text-muted-foreground">Log in to GitHub and click your <b>Profile Picture</b> in the top-right corner. Select <b>Settings</b> from the menu.</p>
-                              </div>
-
-                              <div>
-                                <p className="font-bold text-primary flex items-center gap-1.5 mb-1">
-                                  <span className="w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center text-[10px]">2</span>
-                                  Go to Developer Settings:
-                                </p>
-                                <p className="pl-5 text-muted-foreground">Scroll all the way to the bottom of the left-hand menu. Click <b>Developer settings</b>.</p>
-                              </div>
-
-                              <div>
-                                <p className="font-bold text-primary flex items-center gap-1.5 mb-1">
-                                  <span className="w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center text-[10px]">3</span>
-                                  Choose Tokens (Classic):
-                                </p>
-                                <p className="pl-5 text-muted-foreground">On the left, click <b>Personal access tokens</b> &rarr; <b>Tokens (classic)</b>.</p>
-                              </div>
-
-                              <div>
-                                <p className="font-bold text-primary flex items-center gap-1.5 mb-1">
-                                  <span className="w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center text-[10px]">4</span>
-                                  Generate a New Token:
-                                </p>
-                                <p className="pl-5 text-muted-foreground">Click <b>Generate new token</b> button (top-right) &rarr; <b>Generate new token (classic)</b>.</p>
-                                <div className="ml-5 mt-2 bg-background/50 p-2 rounded border border-border/50">
-                                   <p><b>Note:</b> Type <code className="text-primary px-1">Portfolio-Key</code> so you remember it.</p>
-                                   <p><b>Expiration:</b> Set to <b>"No expiration"</b> for convenience.</p>
-                                </div>
-                              </div>
-
-                              <div className="bg-primary/10 p-3 rounded-lg border border-primary/20 animate-pulse-slow">
-                                <p className="font-bold text-primary flex items-center gap-1.5 mb-1">
-                                  <span className="w-4 h-4 rounded-full bg-primary flex items-center justify-center text-white text-[10px]">5</span>
-                                  Select Scopes (CRITICAL):
-                                </p>
-                                <p className="pl-5 text-primary">Check the box that says <b>repo</b>. This gives the dashboard permission to sync your files!</p>
-                              </div>
-
-                              <div>
-                                <p className="font-bold text-primary flex items-center gap-1.5 mb-1">
-                                  <span className="w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center text-[10px]">6</span>
-                                  Create and Copy:
-                                </p>
-                                <p className="pl-5 text-muted-foreground flex flex-col gap-1">
-                                   <span>Scroll to the bottom and click <b>Generate token</b>.</span>
-                                   <span className="font-bold text-red-500 uppercase tracking-tighter">Copy the code immediately (ghp_...)! GitHub will hide it after you refresh.</span>
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-
-                    <div className="relative group">
-                      <input
-                        type={showGithubToken ? "text" : "password"}
-                        disabled={!enableGithubEdit}
-                        value={githubToken}
-                        onChange={(e) => setGithubToken(e.target.value)}
-                        placeholder="ghp_..."
-                        className="w-full bg-background border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all font-mono disabled:opacity-50"
-                      />
-                      <button
-                        onClick={() => setShowGithubToken(!showGithubToken)}
-                        disabled={!enableGithubEdit}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 rounded-lg hover:bg-muted text-muted-foreground transition-colors disabled:opacity-50"
-                      >
-                        {showGithubToken ? <EyeOff size={18} /> : <Eye size={18} />}
-                      </button>
-                    </div>
-                  </div>
-                  
-                  <div className="flex flex-col gap-3">
-                    <div className="flex gap-2">
-                      <button
-                        onClick={handleUpdateGithubConfig}
-                        disabled={isUpdatingGithub || !enableGithubEdit || !githubToken}
-                        className="flex-1 py-3 rounded-xl bg-muted text-muted-foreground font-semibold hover:bg-muted/80 transition-all disabled:opacity-50 flex items-center justify-center gap-2"
-                      >
-                        {isUpdatingGithub ? "Saving..." : <><Save size={18} /> Save Settings</>}
-                      </button>
-                      
-                      <button
-                        onClick={handleSyncToGitHub}
-                        disabled={isSyncingGithub || isUpdatingGithub || !githubToken || !githubRepo}
-                        className="flex-[2] py-3 rounded-xl bg-[#10b981] text-white font-bold hover:bg-[#10b981]/90 transition-all shadow-lg shadow-[#10b981]/25 disabled:opacity-50 flex items-center justify-center gap-2 group overflow-hidden relative"
-                      >
-                        {isSyncingGithub && (
-                          <motion.div 
-                            className="absolute inset-0 bg-white/20"
-                            initial={{ x: '-100%' }}
-                            animate={{ x: '100%' }}
-                            transition={{ repeat: Infinity, duration: 1, ease: 'linear' }}
-                          />
-                        )}
-                        <UploadCloud size={18} />
-                        {isSyncingGithub ? "Deploying..." : "Sync to GitHub"}
-                      </button>
-                    </div>
-
-                    {syncStatus.text && (
-                      <motion.div 
-                        initial={{ opacity: 0, y: 5 }} 
-                        animate={{ opacity: 1, y: 0 }}
-                        className={`p-3 rounded-lg text-xs font-medium flex items-center justify-between ${
-                          syncStatus.type === 'error' ? 'bg-red-500/10 text-red-500 border border-red-500/20' : 
-                          syncStatus.type === 'success' ? 'bg-green-500/10 text-green-500 border border-green-500/20' :
-                          'bg-primary/5 text-primary border border-primary/20'
-                        }`}
-                      >
-                        <div className="flex items-center gap-2">
-                          {syncStatus.type === 'loading' && <span className="w-3 h-3 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />}
-                          {syncStatus.text}
-                        </div>
-                        {syncStatus.url && (
-                          <a href={syncStatus.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 underline hover:text-green-600 transition-colors">
-                            View Commit <ExternalLink size={12} />
-                          </a>
-                        )}
-                      </motion.div>
-                    )}
-                  </div>
-                </div>
-              </div>
 
               {/* Gemini AI Config Section */}
               <div className={`p-5 rounded-xl border border-border/50 bg-card shadow-sm space-y-4 relative transition-opacity ${!enableGeminiEdit ? 'opacity-80' : ''}`}>
@@ -2254,10 +2094,14 @@ export default function AdminPanel({ onClose }) {
                   <button
                     onClick={handleUpdateGeminiConfig}
                     disabled={isUpdatingKey || !enableGeminiEdit || !isKeyVerified}
-                    className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 disabled:opacity-50 flex items-center justify-center gap-2"
+                    className={`w-full py-3 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 ${
+                      enableGeminiEdit && isKeyVerified
+                        ? 'bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/25'
+                        : 'bg-muted text-muted-foreground cursor-not-allowed'
+                    }`}
                   >
                     {isUpdatingKey ? (
-                      <span className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
+                      <span className="w-4 h-4 border-2 border-current/30 border-t-current rounded-full animate-spin" />
                     ) : (
                       <Save size={18} />
                     )}
@@ -2304,18 +2148,22 @@ export default function AdminPanel({ onClose }) {
                         {showAdminAccessKey ? <EyeOff size={18} /> : <Eye size={18} />}
                       </button>
                     </div>
-                    <p className="text-xs text-muted-foreground italic">
-                      This is the password you use to enter this Admin Panel from the footer.
+                    <p className="text-xs text-muted-foreground">
+                      Your password is <b className="text-foreground">stored as a hash</b>. When updating, type your actual password — once saved and the dashboard is closed, it will display as a secure hashcode.
                     </p>
                   </div>
 
                   <button
                     onClick={handleUpdateAccessKey}
                     disabled={isUpdatingAccessKey || !enableAdminAccessEdit || !adminAccessKey}
-                    className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 disabled:opacity-50 flex items-center justify-center gap-2"
+                    className={`w-full py-3 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 ${
+                      enableAdminAccessEdit && adminAccessKey
+                        ? 'bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/25'
+                        : 'bg-muted text-muted-foreground cursor-not-allowed'
+                    }`}
                   >
                     {isUpdatingAccessKey ? (
-                      <span className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
+                      <span className="w-4 h-4 border-2 border-current/30 border-t-current rounded-full animate-spin" />
                     ) : (
                       <Save size={18} />
                     )}
@@ -2383,6 +2231,75 @@ export default function AdminPanel({ onClose }) {
                 </div>
               </div>
 
+              {/* GitHub Deployment Guide */}
+              <div className="p-5 rounded-xl border border-border/50 bg-card shadow-sm space-y-4">
+                <div className="flex items-center gap-2 border-b border-border/50 pb-4">
+                  <div className="p-2 bg-primary/10 text-primary rounded-lg flex-shrink-0">
+                    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  </div>
+                  <h3 className="text-xl font-semibold text-primary">GitHub Sync Guide</h3>
+                </div>
+                
+                <p className="text-sm text-muted-foreground">
+                  Follow these instructions to safely synchronize your local updates and deploy them to your live GitHub Pages environment.
+                </p>
+
+                <div className="space-y-3 pt-2">
+                  <div className="flex gap-4 items-start p-3 rounded-lg border border-border/40 bg-muted/20">
+                    <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-primary/10 text-primary font-bold text-sm">1</div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-sm mb-1 text-foreground">Save Your Changes</h4>
+                      <p className="text-xs text-muted-foreground leading-relaxed">Ensure you have saved all configurations within this dashboard. If running locally, changes are automatically written to <code className="px-1 py-0.5 rounded bg-muted font-mono font-bold">metadata.json</code>.</p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4 items-start p-3 rounded-lg border border-red-500/20 bg-red-500/5">
+                    <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-red-500/10 text-red-500 font-bold text-sm text-center">2</div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-sm mb-1 text-red-500 flex items-center gap-2">
+                        <AlertCircle size={14} /> Clear Sensitive Keys
+                      </h4>
+                      <p className="text-xs text-muted-foreground leading-relaxed">
+                        CRITICAL: Before pushing, ensure your <code className="px-1 py-0.5 rounded bg-muted/50 font-mono font-bold text-red-500">geminiKey</code> is empty in <code className="px-1 py-0.5 rounded bg-muted font-mono font-bold">metadata.json</code> to prevent leaking your private AI API key to the public repository.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4 items-start p-3 rounded-lg border border-border/40 bg-muted/20">
+                    <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-[#10b981]/10 text-[#10b981] font-bold text-sm">3</div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-sm mb-1 text-foreground">Open Your Terminal</h4>
+                      <p className="text-xs text-muted-foreground leading-relaxed">Navigate to your project directory in an external command line (VSCode Terminal, Git Bash, or Command Prompt).</p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4 items-start p-3 rounded-lg border border-border/40 bg-muted/20">
+                    <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-blue-500/10 text-blue-500 font-bold text-sm">4</div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-sm mb-1 text-foreground">Commit Your Updates</h4>
+                      <p className="text-xs text-muted-foreground leading-relaxed mb-2">Run the following Git commands sequentially to stage and document your latest portfolio edits:</p>
+                      <div className="space-y-1.5 font-mono text-[11px] text-muted-foreground bg-background border border-border rounded-md p-2 overflow-x-auto selection:bg-primary/20">
+                        <div className="select-all block">git add .</div>
+                        <div className="select-all block">git commit -m "Content update via admin dashboard"</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4 items-start p-3 rounded-lg border border-border/40 bg-[#10b981]/5 border-[#10b981]/20">
+                    <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-[#10b981] text-white shadow-lg shadow-[#10b981]/30 font-bold text-sm">5</div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-sm mb-1 text-[#10b981]">Push & Publish</h4>
+                      <p className="text-xs text-muted-foreground leading-relaxed mb-2">Upload the code and trigger the deployment process for GitHub Pages.</p>
+                      <div className="space-y-1.5 font-mono text-[11px] text-[#10b981] bg-background border border-[#10b981]/20 rounded-md p-2 overflow-x-auto selection:bg-primary/20">
+                        <div className="select-all block">git push origin main</div>
+                        <div className="select-all block opacity-60 italic mt-1"># Optional: if you use a builder step, also run:</div>
+                        <div className="select-all block font-bold">npm run deploy</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </motion.div>
           )}
         </AnimatePresence>
@@ -2390,7 +2307,7 @@ export default function AdminPanel({ onClose }) {
         </>
       )}
       {/* Dashboard Footer Status Bar */}
-      {editMode !== null && (
+      {editMode === 'manual' && (
         <div className="px-6 py-2 border-t border-border/50 bg-card/30 flex items-center justify-between">
           <div className="flex items-center gap-4">
             {/* Dynamic Status Dot */}

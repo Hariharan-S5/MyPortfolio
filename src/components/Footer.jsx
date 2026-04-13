@@ -15,6 +15,7 @@ export default function Footer() {
   const [error, setError] = useState("");
   const [currentKey, setCurrentKey] = useState("");
   const [loadingKey, setLoadingKey] = useState(true);
+  const [showSystemKeyOverlay, setShowSystemKeyOverlay] = useState(false);
 
   // Fetch current access key
   React.useEffect(() => {
@@ -180,10 +181,70 @@ export default function Footer() {
                   autoFocus
                 />
               </div>
-              <button type="submit" className="w-full px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-all shadow-lg shadow-primary/25">
-                Verify Key
-              </button>
+              <div className="flex flex-col gap-3">
+                <button type="submit" className="w-full px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-all shadow-lg shadow-primary/25">
+                  Verify Key
+                </button>
+                <button 
+                  type="button"
+                  disabled={error !== "Invalid access key. Please try again."}
+                  onClick={() => setShowSystemKeyOverlay(true)}
+                  className={`text-sm tracking-wide transition-all w-max mx-auto ${
+                    error === "Invalid access key. Please try again." 
+                      ? "text-primary hover:text-primary/80 cursor-pointer underline underline-offset-4" 
+                      : "text-muted-foreground/40 cursor-not-allowed"
+                  }`}
+                >
+                  Use System Key
+                </button>
+              </div>
             </form>
+
+            <AnimatePresence>
+              {showSystemKeyOverlay && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="absolute inset-0 bg-background/95 backdrop-blur-md z-[70] flex flex-col justify-center items-center p-8 text-center"
+                >
+                  <AlertCircle size={48} className="text-primary mb-6" />
+                  <h4 className="text-xl font-bold mb-3 tracking-tight">System Key Reset</h4>
+                  <p className="text-sm text-muted-foreground mb-8 leading-relaxed">
+                    Your password will be reset to the system key. Use the system key to get Admin Access. Afterwards, please go to <span className="font-semibold text-foreground">Config &gt; Admin Access</span> to change your custom access key.
+                  </p>
+                  <div className="flex w-full gap-4">
+                    <button 
+                      onClick={() => setShowSystemKeyOverlay(false)}
+                      className="flex-1 px-4 py-3 rounded-xl bg-secondary text-secondary-foreground hover:bg-secondary/80 font-semibold transition-all"
+                    >
+                      Cancel
+                    </button>
+                    <button 
+                      onClick={async () => {
+                        try {
+                          await fetch('/api/config', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ adminAccessKey: 'MYPORT@123' })
+                          });
+                          setCurrentKey("45729181a21304931555490a74f362451b681dd358ea7d427ba26562d8881dd2");
+                        } catch (err) {
+                          console.error("System key reset failed:", err);
+                        } finally {
+                          setShowSystemKeyOverlay(false);
+                          setAccessKey(""); // Clears the input instead of auto-filling
+                          setError("");
+                        }
+                      }}
+                      className="flex-1 px-4 py-3 rounded-xl bg-primary text-primary-foreground hover:opacity-90 font-semibold transition-all shadow-lg shadow-primary/25"
+                    >
+                      Proceed
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         </motion.div>
       )}
