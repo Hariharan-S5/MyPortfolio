@@ -392,7 +392,7 @@
     }
   },
   "config": {
-    "geminiKey": "AIzaSyChqGLLAZMxhcjkfTcLy4o5uM4It2T05zE",
+    "geminiKey": "",
     "adminAccessKey": "45729181a21304931555490a74f362451b681dd358ea7d427ba26562d8881dd2",
     "theme": "light",
     "stats": {
