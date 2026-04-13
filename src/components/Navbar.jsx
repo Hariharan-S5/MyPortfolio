@@ -3,11 +3,11 @@ import { Menu, X, Moon, Sun } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import metadata from '../data/metadata.json';
 
-const navLinks = [
-  { name: 'About', href: '#about' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Certificates', href: '#certificates' },
-  { name: 'Contact', href: '#contact' },
+const allNavLinks = [
+  { id: 'about', name: 'About', href: '#about' },
+  { id: 'projects', name: 'Projects', href: '#projects' },
+  { id: 'certificates', name: 'Certificates', href: '#certificates' },
+  { id: 'contact', name: 'Contact', href: '#contact' },
 ];
 
 export default function Navbar({ darkMode, setDarkMode }) {
@@ -21,6 +21,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
   }, []);
 
   const firstName = (metadata.name || "Developer").split(' ')[0];
+  const navLinks = allNavLinks.filter(link => metadata.sections?.[link.id]?.show !== false);
 
   return (
     <header 
@@ -59,9 +60,11 @@ export default function Navbar({ darkMode, setDarkMode }) {
               {darkMode ? <Sun size={18} /> : <Moon size={18} />}
             </button>
 
-            <a href="#contact" className="px-4 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity shadow-lg shadow-primary/25">
-              Hire Me
-            </a>
+            {metadata.sections?.contact?.show !== false && (
+              <a href="#contact" className="px-4 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity shadow-lg shadow-primary/25">
+                Hire Me
+              </a>
+            )}
           </nav>
 
           <div className="md:hidden flex items-center space-x-4">

@@ -2276,7 +2276,7 @@ export default function AdminPanel({ onClose }) {
                   <div className="flex gap-4 items-start p-3 rounded-lg border border-border/40 bg-muted/20">
                     <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-blue-500/10 text-blue-500 font-bold text-sm">4</div>
                     <div className="flex-1">
-                      <h4 className="font-semibold text-sm mb-1 text-foreground">Commit Your Updates</h4>
+                      <h4 className="font-semibold text-sm mb-1 text-foreground">Commit Your Updates (git add . & git commit)</h4>
                       <p className="text-xs text-muted-foreground leading-relaxed mb-2">Run the following Git commands sequentially to stage and document your latest portfolio edits:</p>
                       <div className="space-y-1.5 font-mono text-[11px] text-muted-foreground bg-background border border-border rounded-md p-2 overflow-x-auto selection:bg-primary/20">
                         <div className="select-all block">git add .</div>
@@ -2288,7 +2288,7 @@ export default function AdminPanel({ onClose }) {
                   <div className="flex gap-4 items-start p-3 rounded-lg border border-border/40 bg-[#10b981]/5 border-[#10b981]/20">
                     <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-[#10b981] text-white shadow-lg shadow-[#10b981]/30 font-bold text-sm">5</div>
                     <div className="flex-1">
-                      <h4 className="font-semibold text-sm mb-1 text-[#10b981]">Push & Publish</h4>
+                      <h4 className="font-semibold text-sm mb-1 text-[#10b981]">Push & Publish (git push origin main & npm run deploy)</h4>
                       <p className="text-xs text-muted-foreground leading-relaxed mb-2">Upload the code and trigger the deployment process for GitHub Pages.</p>
                       <div className="space-y-1.5 font-mono text-[11px] text-[#10b981] bg-background border border-[#10b981]/20 rounded-md p-2 overflow-x-auto selection:bg-primary/20">
                         <div className="select-all block">git push origin main</div>
