@@ -35,7 +35,7 @@ export default function Certificates() {
       </motion.div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto px-4">
-        {[...metadata.certificates].sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0)).map((cert, index) => (
+        {[...(metadata.certificates || [])].sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0)).map((cert, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 20 }}

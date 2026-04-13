@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Pen, X, Lock } from 'lucide-react';
+import { Pen, X, Lock, AlertCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import AdminPanel from './AdminPanel';
 
@@ -9,20 +9,55 @@ import metadata from '../data/metadata.json';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(!metadata.name);
   const [isDashboardOpen, setIsDashboardOpen] = useState(false);
   const [accessKey, setAccessKey] = useState("");
   const [error, setError] = useState("");
+  const [currentKey, setCurrentKey] = useState("");
+  const [loadingKey, setLoadingKey] = useState(true);
 
-  const handleAuthSubmit = (e) => {
+  // Fetch current access key
+  React.useEffect(() => {
+    setLoadingKey(true);
+    fetch('/api/config')
+      .then(res => res.json())
+      .then(data => {
+        if (data.adminAccessKey) {
+          setCurrentKey(data.adminAccessKey);
+        } else {
+          // Hardcoded fallback hash for MYPORT@123
+          setCurrentKey("45729181a21304931555490a74f362451b681dd358ea7d427ba26562d8881dd2");
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        setCurrentKey("45729181a21304931555490a74f362451b681dd358ea7d427ba26562d8881dd2");
+      })
+      .finally(() => setLoadingKey(false));
+  }, [isAuthModalOpen]);
+
+  const handleAuthSubmit = async (e) => {
     e.preventDefault();
-    if (accessKey === "HARI@239#") {
-      setIsAuthModalOpen(false);
-      setIsDashboardOpen(true);
-      setError("");
-      setAccessKey("");
-    } else {
-      setError("Invalid access key. Please try again.");
+    if (loadingKey) return;
+    
+    try {
+      // Hash the entered access key using SHA-256 (trimmed for safety)
+      const msgUint8 = new TextEncoder().encode(accessKey.trim());
+      const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      const hashedEnteredKey = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+      if (hashedEnteredKey === currentKey) {
+        setIsAuthModalOpen(false);
+        setIsDashboardOpen(true);
+        setError("");
+        setAccessKey("");
+      } else {
+        setError("Invalid access key. Please try again.");
+      }
+    } catch (err) {
+      console.error('Hashing failed:', err);
+      setError("Security verification failed. Please try again.");
     }
   };
 
@@ -32,22 +67,22 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center gap-6">
           <div className="flex items-center gap-4 text-muted-foreground bg-secondary/20 px-6 py-3 rounded-full border border-border/30 backdrop-blur-md shadow-sm">
-            {metadata.contact.github && (
+            {metadata.contact?.github && (
               <a href={metadata.contact.github} target="_blank" rel="noreferrer" className="hover:text-foreground transition-all hover:scale-110 active:scale-95">
                 <FaGithub size={20} />
               </a>
             )}
-            {metadata.contact.linkedin && (
+            {metadata.contact?.linkedin && (
               <a href={metadata.contact.linkedin} target="_blank" rel="noreferrer" className="hover:text-[#0A66C2] transition-all hover:scale-110 active:scale-95">
                 <FaLinkedin size={20} />
               </a>
             )}
-            {metadata.contact.instagram && (
+            {metadata.contact?.instagram && (
               <a href={metadata.contact.instagram} target="_blank" rel="noreferrer" className="hover:text-[#E4405F] transition-all hover:scale-110 active:scale-95">
                 <FaInstagram size={20} />
               </a>
             )}
-            {metadata.contact.leetcode && (
+            {metadata.contact?.leetcode && (
               <a href={metadata.contact.leetcode} target="_blank" rel="noreferrer" className="hover:text-[#FFA116] transition-all hover:scale-110 active:scale-95">
                 <SiLeetcode size={20} />
               </a>
@@ -87,7 +122,12 @@ export default function Footer() {
         >
           <motion.div 
             initial={{ scale: 0.95, opacity: 0, y: 20 }}
-            animate={error ? { x: [-10, 10, -10, 10, 0] } : { scale: 1, opacity: 1, y: 0 }}
+            animate={{ 
+              scale: 1, 
+              opacity: 1, 
+              y: 0,
+              x: error ? [-10, 10, -10, 10, 0] : 0 
+            }}
             exit={{ scale: 0.95, opacity: 0, y: 20 }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
             className="relative w-full max-w-sm bg-card border-2 border-border/80 rounded-3xl p-8 shadow-[0_25px_50px_-12px_rgba(var(--primary),0.25)] overflow-hidden flex flex-col"
@@ -110,6 +150,19 @@ export default function Footer() {
               </div>
               <h3 className="text-2xl font-bold tracking-tight">Admin Access</h3>
               <p className="text-muted-foreground text-sm">Please enter your edit access key.</p>
+              
+              {error && (
+                <motion.div 
+                  initial={{ opacity: 0, y: -10 }} 
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center justify-center gap-2 text-red-500 bg-red-500/10 p-3 rounded-2xl border border-red-500/20 mt-4 mx-auto w-full"
+                >
+                  <AlertCircle size={14} />
+                  <p className="text-[11px] font-bold uppercase tracking-wider">
+                    {error}
+                  </p>
+                </motion.div>
+              )}
             </div>
             
             <form onSubmit={handleAuthSubmit} className="space-y-4">
@@ -126,14 +179,6 @@ export default function Footer() {
                   required
                   autoFocus
                 />
-                {error && (
-                  <motion.p 
-                    initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }}
-                    className="text-red-500 text-xs mt-1"
-                  >
-                    {error}
-                  </motion.p>
-                )}
               </div>
               <button type="submit" className="w-full px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-all shadow-lg shadow-primary/25">
                 Verify Key

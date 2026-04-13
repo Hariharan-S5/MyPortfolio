@@ -39,7 +39,7 @@ export default function Projects() {
       </motion.div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {[...metadata.projects].sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0)).map((project, index) => (
+        {[...(metadata.projects || [])].sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0)).map((project, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 20 }}
@@ -99,7 +99,7 @@ export default function Projects() {
               </p>
               
               <div className="flex flex-wrap gap-2 mt-auto">
-                {project.tech.map(tag => (
+                {(project.tech || []).map(tag => (
                   <span key={tag} className="px-3 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/20">
                     {tag}
                   </span>

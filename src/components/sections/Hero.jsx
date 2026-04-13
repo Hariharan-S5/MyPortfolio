@@ -76,23 +76,23 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          {metadata.contact.github && (
+          {metadata.contact?.github && (
             <a href={metadata.contact.github} target="_blank" rel="noreferrer" className="hover:text-foreground hover:scale-110 transition-all">
               <FaGithub size={24} />
             </a>
           )}
-          {metadata.contact.linkedin && (
+          {metadata.contact?.linkedin && (
             <a href={metadata.contact.linkedin} target="_blank" rel="noreferrer" className="hover:text-[#0A66C2] hover:scale-110 transition-all">
               <FaLinkedin size={24} />
             </a>
           )}
 
-          {metadata.contact.instagram && (
+          {metadata.contact?.instagram && (
             <a href={metadata.contact.instagram} target="_blank" rel="noreferrer" className="hover:text-[#E4405F] hover:scale-110 transition-all">
               <FaInstagram size={24} />
             </a>
           )}
-          {metadata.contact.leetcode && (
+          {metadata.contact?.leetcode && (
             <a href={metadata.contact.leetcode} target="_blank" rel="noreferrer" className="hover:text-[#FFA116] hover:scale-110 transition-all">
               <SiLeetcode size={24} />
             </a>

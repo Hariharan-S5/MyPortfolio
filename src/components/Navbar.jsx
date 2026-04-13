@@ -20,7 +20,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const firstName = metadata.name.split(' ')[0];
+  const firstName = (metadata.name || "Developer").split(' ')[0];
 
   return (
     <header 

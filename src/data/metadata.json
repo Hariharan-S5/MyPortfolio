@@ -1,352 +1,78 @@
 {
-  "name": "Hariharan Sandhrasekar",
-  "title": "AI Developer | Data Engineer | Data Analyst | Full-Stack Developer | 4+ Years",
-  "subtitle": "Dynamic Senior Developer adept at building intelligent agents and optimizing AI models",
-  "location": "Chennai",
-  "about": "AI Developer focused on building intelligent, data-driven solutions using LLMs, data engineering, and modern web technologies, including AI-powered Excel automation, Power BI analytics, data analysis, and scalable full-stack web applications.",
-  "profileImage": "/assets/profile-pic.jpeg?t=1774897170451",
-  "resume": "/assets/resume/HariharanSD.pdf?t=1775897680739",
-  "education": [
-    {
-      "school": "Government High School - Kariyampatty",
-      "degree": "SSLC",
-      "year": "2015",
-      "gpa": "93.8%",
-      "timestamp": 1735689600
-    },
-    {
-      "school": "The Gandhigram Rural Institute - Dindigul",
-      "degree": "B.Sc. Physics",
-      "year": "2020",
-      "gpa": "64%",
-      "timestamp": 1735689602
-    },
-    {
-      "school": "Bharathi Vidyalaya Matric Hr Sec - Thirupur",
-      "degree": "Higher Secondary",
-      "year": "2017",
-      "gpa": "85%",
-      "timestamp": 1735689601
-    }
-  ],
-  "skills": [
-    "C",
-    "C++",
-    "Java",
-    "Python",
-    "JavaScript",
-    "TypeScript",
-    "SQL",
-    "Angular",
-    "React.js",
-    "React Native",
-    "HTML5",
-    "CSS3",
-    "SCSS",
-    "Node.js",
-    "Express.js",
-    "Spring Boot",
-    "Flask",
-    "REST API",
-    "API Integration",
-    "JWT Authentication",
-    "LangChain",
-    "Hugging Face",
-    "RAG",
-    "AI Agents",
-    "Prompt Engineering",
-    "LLM Integration",
-    "Claude",
-    "GPT Models",
-    "GitHub Copilot",
-    "PostgreSQL",
-    "MySQL",
-    "SQLite",
-    "DuckDB",
-    "Redis",
-    "Excel",
-    "Power BI",
-    "PyShark",
-    "Shell Script",
-    "Cron",
-    "Task Scheduling",
-    "Multithreading",
-    "Singleton Pattern",
-    "Observable Pattern",
-    "RxJS",
-    "Finite State Management",
-    "Application Testing",
-    "Debugging",
-    "Performance Optimization",
-    "Git",
-    "VS Code",
-    "Ubuntu",
-    "CentOS",
-    "Windows",
-    "IntelliJ",
-    "Postman",
-    "Android Studio"
-  ],
-  "achievements": [
-    {
-      "title": "Senior Developer at MSN Infotec",
-      "description": "Led development of intelligent AI agents using Python, LLM, and Langchain. Integrated large language models into multi-agent systems for enhanced communication and problem-solving.",
-      "prize": "Product Development Excellence",
-      "timestamp": 1735689600
-    },
-    {
-      "title": "Next-Gen Application Upgradation",
-      "description": "Played active role in upgrading client application to Angular 14 & 15. Conducted stress testing, improved performance, and integrated codebases.",
-      "prize": "Application Performance Optimization Award",
-      "timestamp": 1730419200
-    },
-    {
-      "title": "API Orchestration System",
-      "description": "Built robust APIs for backend interactions and third-party integrations using Node.js and TypeScript. Implemented non-blocking I/O and streams for high performance.",
-      "prize": "Backend Development Excellence",
-      "timestamp": 1719878400
-    },
-    {
-      "title": "Custom Component Development",
-      "description": "Developed custom components for Centiyent product including selection, autocompletion, and CDK-Overlays. Improved UI/UX in collaboration with design team.",
-      "prize": "Enhanced Product Performance",
-      "timestamp": 1725148800
-    }
-  ],
-  "certificates": [
-    {
-      "name": "Excel using AI workshop",
-      "provider": "Office Master",
-      "date": "March 8, 2026",
-      "description": "Completed the Excel using AI Workshop by Office Master, focusing on AI-powered data analysis, advanced 3D visualizations, and automated PowerPoint presentation creation using Excel data.",
-      "timestamp": 1741584000,
-      "website": "https://officemaster.in/",
-      "image": "/assets/certificates/excel_ai_certificate.jpg",
-      "content": [
-        {
-          "topic": "1) Data analysis with AI",
-          "description": "Learn how to leverage AI-powered tools in Excel to analyze large datasets, identify patterns, and generate insights automatically. Master advanced functions and AI integrations for data processing and visualization."
-        },
-        {
-          "topic": "2) Creating 3D visualizations",
-          "description": "Discover techniques to create stunning 3D charts and graphs in Excel. Transform complex data into interactive visual representations that bring your analysis to life with depth and clarity."
-        },
-        {
-          "topic": "3) Designing PowerPoint presentations in minutes",
-          "description": "Streamline your presentation creation process by integrating Excel data directly into PowerPoint. Learn automation techniques to generate professional slides quickly and efficiently."
-        }
-      ]
-    }
-  ],
-  "projects": [
-    {
-      "title": "Flappy Canvas",
-      "description": "SkyFlap is a browser-based Flappy Bird clone built with HTML5 Canvas and JavaScript, featuring responsive gameplay, collision detection, infinite scrolling obstacles, score tracking, and persistent high scores using LocalStorage.",
-      "tech": [
-        "HTML5",
-        "CSS3",
-        "JavaScript (ES6)",
-        "HTML5 Canvas API",
-        "LocalStorage",
-        "Responsive Web Design"
-      ],
-      "liveLink": "https://github.com/Hariharan-S5/Flappy-Bird.git",
-      "codeLink": "https://github.com/Hariharan-S5/Flappy-Bird.git",
-      "image": "/projects/1774898483909-flappy.jpeg",
-      "category": "Web Game Development",
-      "timestamp": 1774898401,
-      "isClickable": false,
-      "isCodeClickable": true
-    },
-    {
-      "title": "Personal Mail Sentinel & Monitor",
-      "description": "PMM is a high-fidelity, real-time dashboard designed for the modern SaaS professional. It seamlessly integrates secure Google Firebase authentication with a sophisticated glassmorphic interface to provide deep insights into your email communication, business analytics, and system architecture.",
-      "tech": [
-        "React",
-        "Vite",
-        "Zustand",
-        "Tailwind CSS",
-        "Framer Motion",
-        "Lucide Icons",
-        "Recharts",
-        "Node.js",
-        "Express.js",
-        "Firebase Authentication",
-        "SQLite3",
-        "REST API",
-        "JavaScript",
-        "HTML5",
-        "CSS3"
-      ],
-      "liveLink": "https://github.com/Hariharan-S5/PersonalMailMonitor.git",
-      "codeLink": "https://github.com/Hariharan-S5/PersonalMailMonitor.git",
-      "image": "/projects/1774898073252-PMM.jpeg",
-      "category": "SaaS Monitoring System",
-      "timestamp": 1774898421,
-      "isClickable": false,
-      "isCodeClickable": true
-    },
-    {
-      "title": "Hiya Chat Assistant Frontend",
-      "description": "Hiya Chat Assistant Frontend is a React-based interface for interacting with an AI chat assistant. It connects to a backend API to send user messages and display AI responses in real time.",
-      "tech": [
-        "React",
-        "Vite",
-        "Firebase Auth",
-        "JavaScript",
-        "REST API"
-      ],
-      "liveLink": "https://github.com/Hariharan-S5/Hiya-Chat-Assistant-Frontend.git",
-      "codeLink": "https://github.com/Hariharan-S5/Hiya-Chat-Assistant-Frontend.git",
-      "image": "/assets/projects/project1.png",
-      "category": "AI & Machine Learning",
-      "timestamp": 1773733993,
-      "isClickable": false,
-      "isCodeClickable": true
-    },
-    {
-      "title": "Hiya Chat Assistant Backend",
-      "description": "Hiya Chat Assistant Backend is a Python-based system that powers an AI chat platform. It handles chat requests, integrates with Large Language Models (LLMs), and manages user interaction data.",
-      "tech": [
-        "Python",
-        "Flask",
-        "Ollama",
-        "SQLite",
-        "Llama3 / Phi3"
-      ],
-      "liveLink": "https://github.com/Hariharan-S5/Hiya-Chat-Assistant-Backend.git",
-      "codeLink": "https://github.com/Hariharan-S5/Hiya-Chat-Assistant-Backend.git",
-      "image": "/assets/projects/project2.png",
-      "category": "AI & Machine Learning",
-      "timestamp": 1773733993,
-      "isClickable": false,
-      "isCodeClickable": true
-    },
-    {
-      "title": "Daily Tech Harry",
-      "description": "Automated AI Telegram bot delivering curated software tech news from developer RSS feeds, highlighting programming, Java, AI, cloud, DevOps, and updates, with instant AI explanations.",
-      "tech": [
-        "Python",
-        "Telegram Bot API",
-        "HF-Transformers",
-        "PyTorch",
-        "feedparser"
-      ],
-      "liveLink": "https://github.com/Hariharan-S5/DailyTechHarryAi.git",
-      "codeLink": "https://github.com/Hariharan-S5/DailyTechHarryAi.git",
-      "image": "/assets/projects/project3.png",
-      "category": "AI & Machine Learning",
-      "timestamp": 1773407205,
-      "isClickable": false,
-      "isCodeClickable": true
-    },
-    {
-      "title": "Excel Data Generator",
-      "description": "A cross-browser extension that generates scenario-based Excel data (Sales, Stock, Customer, Employee, etc.) and automatically pastes it into Google Sheets.",
-      "tech": [
-        "JavaScript",
-        "HTML",
-        "CSS",
-        "Chrome Exe Manifest V3",
-        "GSheets integration"
-      ],
-      "liveLink": "https://github.com/Hariharan-S5/Excel-Data-Generator.git",
-      "codeLink": "https://github.com/Hariharan-S5/Excel-Data-Generator.git",
-      "image": "/assets/projects/project4.png",
-      "category": "Chrome Extension",
-      "timestamp": 1773049699,
-      "isClickable": false,
-      "isCodeClickable": true
-    },
-    {
-      "title": "SIEM-Product",
-      "description": "Built and customized information security modules for Centiyent using Angular 15, PostgreSQL. Developed custom components, authentication with JWT, and API integrations.",
-      "tech": [
-        "Angular 15",
-        "TypeScript",
-        "Node.js",
-        "PostgreSQL",
-        "JWT"
-      ],
-      "liveLink": "https://centiyent.com",
-      "codeLink": "https://github.com/hariharan-sandhrasekar/centiyent-security",
-      "image": "/assets/projects/project5.png",
-      "category": "Web Development",
-      "timestamp": 1733875200,
-      "isClickable": false,
-      "isCodeClickable": false
-    },
-    {
-      "title": "Next-Gen Application Upgradation",
-      "description": "Led the upgradation of client application from Angular 10 to 14 & 15. Conducted stress testing, performance optimization, and seamless codebase integration.",
-      "tech": [
-        "Angular 14",
-        "Angular 15",
-        "PostgreSQL",
-        "Performance Tuning"
-      ],
-      "liveLink": "https://centiyent.com",
-      "codeLink": "https://github.com/hariharan-sandhrasekar/app-upgradation",
-      "image": "/assets/projects/project6.png",
-      "category": "Web Development",
-      "timestamp": 1726176000,
-      "isClickable": false,
-      "isCodeClickable": false
-    },
-    {
-      "title": "API Orchestration System",
-      "description": "Developed robust APIs for backend interactions and third-party integrations using Node.js and TypeScript. Implemented non-blocking I/O and streams for high performance.",
-      "tech": [
-        "Node.js",
-        "TypeScript",
-        "Express.js",
-        "PostgreSQL",
-        "RxJS"
-      ],
-      "liveLink": "https://centiyent.com",
-      "codeLink": "https://github.com/hariharan-sandhrasekar/api-orchestration",
-      "image": "/assets/projects/project7.png",
-      "category": "Backend Development",
-      "timestamp": 1718486400,
-      "isClickable": false,
-      "isCodeClickable": false
-    }
-  ],
+  "name": "",
+  "title": "",
+  "subtitle": "",
+  "location": "",
+  "about": "",
+  "profileImage": "",
+  "resume": "",
+  "education": [],
+  "skills": [],
+  "experience": [],
+  "achievements": [],
+  "certificates": [],
+  "projects": [],
   "contact": {
-    "github": "https://github.com/Hariharan-S5",
-    "linkedin": "https://www.linkedin.com/in/hariharan-s-a22961200/",
-    "email": "hariharan.sandhrasekar@gmail.com",
-    "instagram": "https://www.instagram.com/lovelyhari30/",
-    "leetcode": "https://leetcode.com/u/Hariharan-sandhrasekar/"
+    "github": "",
+    "linkedin": "",
+    "email": "",
+    "instagram": "",
+    "leetcode": ""
   },
   "sections": {
     "about": {
-      "title": "About Me"
+      "title": "About Me",
+      "show": true
+    },
+    "hero": {
+      "greeting": "Hi, I'm",
+      "show": true
+    },
+    "experience": {
+      "title": "Work Experience",
+      "show": true
+    },
+    "achievements": {
+      "title": "Achievements",
+      "show": true
+    },
+    "education": {
+      "title": "Education",
+      "show": true
     },
     "projects": {
-      "title": "Completed Projects",
-      "subtitle": "Showcasing my latest work and technical expertise."
+      "title": "Featured Projects",
+      "subtitle": "",
+      "show": true
     },
     "certificates": {
-      "title": "Official Certifications",
-      "subtitle": "My professional journey through continuous learning and specialized certifications."
+      "title": "Certificates",
+      "subtitle": "",
+      "show": true
     },
     "contact": {
       "title": "Get in Touch",
-      "subtitle": "Have a project in mind or just want to say hi? Feel free to reach out."
+      "subtitle": "",
+      "show": true
     },
     "skills": {
       "title": "Technical Arsenal",
-      "subtitle": "I've worked with a wide variety of programming languages, frameworks, and tools. Here is my technology stack:"
+      "subtitle": "",
+      "show": true
+    }
+  },
+  "config": {
+    "geminiKey": "AIzaSyDUHK7sh2H4RbilbLwFTzZoBeSD3wiZ9II",
+    "adminAccessKey": "45729181a21304931555490a74f362451b681dd358ea7d427ba26562d8881dd2",
+    "theme": "light",
+    "github": {
+      "token": "",
+      "repo": "sdhariharan75-design/MyPortfolio",
+      "branch": "main"
     },
-    "hero": {
-      "greeting": "Hi, I'm"
-    },
-    "achievements": {
-      "title": "Experience & Achievements"
-    },
-    "education": {
-      "title": "Education"
+    "stats": {
+      "dailyRequests": 3,
+      "lastReset": "2026-04-13"
     }
   }
 }

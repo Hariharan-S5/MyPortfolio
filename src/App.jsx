@@ -7,6 +7,8 @@ import Certificates from './components/sections/Certificates';
 import Contact from './components/sections/Contact';
 import Footer from './components/Footer';
 
+import metadata from './data/metadata.json';
+
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 
@@ -18,17 +20,25 @@ function App() {
     }
   }, [darkMode]);
 
+  // Check if About or any of its sub-sections are enabled
+  const showAboutSection = 
+    metadata.sections?.about?.show !== false || 
+    metadata.sections?.experience?.show !== false || 
+    metadata.sections?.achievements?.show !== false || 
+    metadata.sections?.skills?.show !== false || 
+    metadata.sections?.education?.show !== false;
+
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 selection:text-primary">
       <div className="fixed inset-0 -z-10 h-full w-full bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.15),rgba(255,255,255,0))]"></div>
       
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
-        <Hero />
-        <About />
-        <Projects />
-        <Certificates />
-        <Contact />
+        {metadata.sections?.hero?.show !== false && <Hero />}
+        {showAboutSection && <About />}
+        {metadata.sections?.projects?.show !== false && <Projects />}
+        {metadata.sections?.certificates?.show !== false && <Certificates />}
+        {metadata.sections?.contact?.show !== false && <Contact />}
       </main>
       <Footer />
     </div>

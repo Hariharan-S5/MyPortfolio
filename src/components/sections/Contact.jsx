@@ -32,14 +32,14 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className="glass-card p-8 rounded-2xl flex flex-col items-center justify-center text-center gap-4 cursor-pointer hover:border-primary/50 transition-all hover:-translate-y-1"
-          onClick={() => window.location.href = `mailto:${metadata.contact.email}`}
+          onClick={() => window.location.href = `mailto:${metadata.contact?.email}`}
         >
           <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 mb-2">
             <Mail size={32} />
           </div>
           <div>
             <h4 className="text-xl font-semibold mb-2">Email</h4>
-            <p className="text-muted-foreground">{metadata.contact.email}</p>
+            <p className="text-muted-foreground">{metadata.contact?.email}</p>
           </div>
         </motion.div>
 
@@ -65,7 +65,7 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
           className="glass-card p-8 rounded-2xl flex flex-col items-center justify-center text-center gap-4 cursor-pointer hover:border-primary/50 transition-all hover:-translate-y-1"
-          onClick={() => window.open(metadata.contact.linkedin, '_blank')}
+          onClick={() => window.open(metadata.contact?.linkedin, '_blank')}
         >
           <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 mb-2">
             <FaLinkedin size={32} />
